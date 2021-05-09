@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { Arabic, English } from "../Languages";
+import Arabic from "../Languages/Arabic";
+import English from "../Languages/English";
 
 const LanguageContext = createContext();
 
@@ -14,7 +15,7 @@ const languages = new Map([
       name: "English",
       shorthand: "EN",
       data: English,
-      direction: "ltr"
+      direction: "ltr",
     },
   ],
   [
@@ -24,7 +25,7 @@ const languages = new Map([
       name: "العربية",
       shorthand: "AR",
       data: Arabic,
-      direction: "rtl"
+      direction: "rtl",
     },
   ],
 ]);
@@ -33,23 +34,25 @@ export const useLanguage = () => useContext(LanguageContext);
 
 const LanguageProvider = ({ children }) => {
   const [active, setActive] = useState(eng);
-  useEffect(()=>{
+  useEffect(() => {
     const active = localStorage.getItem("language");
-    setActive(active)
-  },[])
-  useEffect(()=>{
+    setActive(active);
+  }, []);
+  useEffect(() => {
     localStorage.setItem("language", active);
-  },[active]);
+  }, [active]);
   const language = languages.get(active);
   const english = languages.get(eng);
   const arabic = languages.get(ar);
   const setArabic = () => setActive(ar);
   const setEnglish = () => setActive(eng);
-  return <LanguageContext.Provider value={{language,english,arabic,active,setArabic,setEnglish}}>
-    <div className={language.direction}>
-      {children}
-    </div>
-  </LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider
+      value={{ language, english, arabic, active, setArabic, setEnglish }}
+    >
+      <div className={language.direction}>{children}</div>
+    </LanguageContext.Provider>
+  );
 };
 
 export default LanguageProvider;
