@@ -1,0 +1,13 @@
+.rtl {
+  direction: rtl;
+}
+
+.rtl * {
+  font-family: "Poppins", "hinted-RB", sans-serif;
+}
+
+@media (min-width: 992px) {
+  .rtl .header-other li.nav-item:not(:last-child):after {
+    right: 0;
+  }
+}

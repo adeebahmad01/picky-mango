@@ -1,0 +1,15 @@
+{
+  "name": "picky-mango",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd ClientApp && npm run build",
+    "start": "cd ClientApp && npm start",
+    "deploy": "git add . && git commit -m",
+    "postdeploy": "git push origin master"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

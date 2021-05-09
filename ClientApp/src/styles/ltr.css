@@ -1,0 +1,14 @@
+.ltr * {
+  font-family: "Poppins","hinted-RB", sans-serif;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+
+@media (min-width: 992px) {
+  .ltr .header-other li.nav-item:not(:last-child):after {
+    right: 0;
+  }
+}
