@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "install": "cd ClientApp && npm install",
     "build": "cd ClientApp && npm run build",
     "start": "cd ClientApp && npm start",
     "deploy": "git add . && git commit -m",
