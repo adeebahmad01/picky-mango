@@ -4,8 +4,6 @@ import LanguageProvider from "./hooks/useLanguage";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import Routes from "./Routes";
 import "./styles/defaults.css";
-import "react-awesome-slider/dist/styles.css";
-import "react-awesome-slider/dist/custom-animations/fall-animation.css";
 import "./styles/rtl.css";
 import "./styles/ltr.css";
 import "./styles/home.css";
