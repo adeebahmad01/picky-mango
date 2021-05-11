@@ -4,13 +4,13 @@ import SwiperCore, {
   Pagination,
   Parallax,
   EffectFade,
-  Mousewheel,
+  Navigation,
 } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import { Button, Fab, IconButton, Paper, Typography } from "@material-ui/core";
 import ArrowRight from "../../images/icons/ArrowIcon";
 import { Fade, Zoom } from "react-reveal";
-SwiperCore.use([Parallax, Pagination, EffectFade, Mousewheel]);
+SwiperCore.use([Parallax, Pagination, EffectFade, Navigation]);
 const Slider = () => {
   const [index, setIndex] = useState(0);
   const images = [
@@ -49,11 +49,10 @@ const Slider = () => {
             spaceBetween={30}
             className="blog-slider overflow-visible unaffected"
             effect="fade"
-            // direction="vertical"
-            // mousewheel={true}
             pagination={{
               clickable: true,
             }}
+            navigation={true}
             grabCursor
             loop
           >

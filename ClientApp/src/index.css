@@ -33,4 +33,26 @@ code {
 
 [class*="swiper-button-"]::after {
   color: var(--color-primary);
+  
+}
+
+[class*="swiper-button-"]{
+  position: absolute;
+  right: 40px !important;
+  bottom: 40px !important;
+  width: 30px !important;
+  height: 30px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  left: auto !important;
+  top: auto !important;
+  --swiper-navigation-size: 1rem
+}
+
+.swiper-button-prev{
+  right: 80px !important;
 }
