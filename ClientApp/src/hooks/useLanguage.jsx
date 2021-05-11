@@ -36,7 +36,7 @@ const LanguageProvider = ({ children }) => {
   const [active, setActive] = useState(eng);
   useEffect(() => {
     const active = localStorage.getItem("language");
-    setActive(active);
+    setActive(active || eng);
   }, []);
   useEffect(() => {
     localStorage.setItem("language", active);

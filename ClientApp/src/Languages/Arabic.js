@@ -18,4 +18,4 @@ const Arabic = {
   }
 };
 
-export default Arabic
+export default Arabic;

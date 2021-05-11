@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Parallax, EffectFlip } from "swiper";
+import SwiperCore, {
+  Pagination,
+  Parallax,
+  EffectFade,
+  Mousewheel,
+} from "swiper";
 import "swiper/swiper-bundle.min.css";
 import { Button, Fab, IconButton, Paper, Typography } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import ArrowRight from "../../images/icons/ArrowIcon";
-SwiperCore.use([Parallax, Navigation]);
-// Import Swiper styles
+import { Fade, Zoom } from "react-reveal";
+SwiperCore.use([Parallax, Pagination, EffectFade, Mousewheel]);
 const Slider = () => {
+  const [index, setIndex] = useState(0);
   const images = [
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/8b3346dc-7b9e-465c-91c6-f45feb238be4/8f3be4f4-0a94-47e0-ac95-909f2ce1edec.jpeg",
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/fd3298b9-3eba-4c8d-9c8a-96d366af1b86/12066ada-cb5e-408b-8469-1feb82e8f3fc.jpeg",
@@ -37,83 +42,65 @@ const Slider = () => {
             </span>{" "}
           </IconButton>
         </div>
-        <Swiper
-          className="container unaffected"
-          navigation
-          grabCursor
-          loop
-          parallax
-        >
-          {images.map((el) => (
-            <SwiperSlide className="h-100 p-2">
-              <Paper elevation={3}>
-                <div className="row">
-                  <div className="col-lg-6">
-                    <Paper
-                      component="img"
-                      className="w-100 rounded"
-                      src={el}
-                      alt=""
-                    />
+        <div className="container">
+          <Swiper
+            onSlideChange={(a) => setIndex(a.realIndex)}
+            initialSlide={0}
+            spaceBetween={30}
+            className="blog-slider overflow-visible unaffected"
+            effect="fade"
+            // direction="vertical"
+            // mousewheel={true}
+            pagination={{
+              clickable: true,
+            }}
+            grabCursor
+            loop
+          >
+            {images.map((el, i) => (
+              <SwiperSlide key={i} className="blog-slider__item">
+                <div className="row w-100">
+                  <div className="col-lg-5">
+                    <Zoom when={index === i}>
+                      <div className="blog-slider__img">
+                        <img src={el} alt={el} />
+                      </div>
+                    </Zoom>
                   </div>
-                  <div className="col-lg-6">
-                    <Typography variant="h3" className="rtl my-4 pe-4">
-                      خدمات تكيف وتبريد{" "}
-                    </Typography>
-                    <div className="row my-3">
-                      <div className="col-6">
-                        <Typography variant="h5" style={{ textAlign: `right` }}>
-                          Owner:{" "}
-                        </Typography>
+                  <div className="col-lg-7">
+                    <Fade when={index === i} cascade top>
+                      <div className="blog-slider__content">
+                        <span className="blog-slider__code">
+                          Category: الالكترونيات
+                        </span>
+                        <div className="blog-slider__title">
+                          ثلاجة ناشونال الكترك
+                        </div>
+                        <div className="blog-slider__text mb-2">
+                          <b>Ad Owned by:</b> Picky Mango
+                        </div>
+                        <div className="blog-slider__text mb-2">
+                          <b>From Country:</b> Jordan
+                        </div>
+                        <div className="blog-slider__text">
+                          <b>Current Price:</b> 225 د.ا.‏
+                        </div>
+                        <Button
+                          size="large"
+                          color="primary"
+                          variant="contained"
+                          className="blog-slider__button rounded-pill"
+                        >
+                          READ MORE
+                        </Button>
                       </div>
-                      <div className="col-6">
-                        <Typography color="primary" variant="h5">
-                          <b>Picky Mango</b>{" "}
-                        </Typography>
-                      </div>
-                    </div>
-                    <div className="row my-3">
-                      <div className="col-6">
-                        <Typography variant="h5" style={{ textAlign: `right` }}>
-                          Current Price:{" "}
-                        </Typography>
-                      </div>
-                      <div className="col-6">
-                        <Typography color="primary" variant="h5">
-                          <b>15 د.ا.‏</b>{" "}
-                        </Typography>
-                      </div>
-                    </div>
-                    <div className="row my-3">
-                      <div className="col-6">
-                        <Typography variant="h5" style={{ textAlign: `right` }}>
-                          Country:{" "}
-                        </Typography>
-                      </div>
-                      <div className="col-6">
-                        <Typography color="primary" variant="h5">
-                          <b>Jordan</b>{" "}
-                        </Typography>
-                      </div>
-                    </div>
-                    <div className="text-center">
-                      <Button
-                        color="primary"
-                        className="text-white rounded-pill"
-                        size="large"
-                        component={Link}
-                        to="/abc"
-                        variant="contained"
-                      >
-                        View Details
-                      </Button>
-                    </div>
+                    </Fade>
                   </div>
                 </div>
-              </Paper>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </div>
   );
