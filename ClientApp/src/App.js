@@ -7,6 +7,7 @@ import "./styles/defaults.css";
 import "./styles/rtl.css";
 import "./styles/ltr.css";
 import "./styles/home.css";
+import "./styles/contact.css";
 import Footer from "./components/Layout/Footer";
 
 const colors = {
