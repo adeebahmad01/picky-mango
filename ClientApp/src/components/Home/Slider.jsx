@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   Pagination,
@@ -7,7 +7,7 @@ import SwiperCore, {
   Navigation,
 } from "swiper";
 import "swiper/swiper-bundle.min.css";
-import { Button, Fab, IconButton, Paper, Typography } from "@material-ui/core";
+import { Button, IconButton, Typography } from "@material-ui/core";
 import ArrowRight from "../../images/icons/ArrowIcon";
 import { Fade, Zoom } from "react-reveal";
 SwiperCore.use([Parallax, Pagination, EffectFade, Navigation]);
@@ -27,6 +27,52 @@ const Slider = () => {
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/914e6c15-2117-4aa2-b26d-22de2fa9db22/88a21dcf-f038-42bc-b20a-47d4b028353b.jpeg",
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/3c6233a4-75cb-4390-8a32-d77b89ff4459/5febdbd0-e461-479e-bcdd-0a4ff10a8f96.jpeg",
   ];
+  const showSlides = () =>
+    images.map((el, i) => (
+      <SwiperSlide key={i} className="blog-slider__item">
+        <div className="row w-100">
+          <div className="col-lg-5">
+            <Zoom when={index === i}>
+              <div className="blog-slider__img">
+                <img src={el} alt={el} />
+              </div>
+            </Zoom>
+          </div>
+          <div className="col-lg-7">
+            <Fade when={index === i} cascade top>
+              <div className="blog-slider__content">
+                <Typography
+                  variant="h2"
+                  className="blog-slider__code text_colored"
+                >
+                  Happening Now
+                </Typography>
+                <Typography variant="h1" className="blog-slider__title">
+                  ثلاجة ناشونال الكترك
+                </Typography>
+                <div className="blog-slider__text mb-2">
+                  <b>Ad Owned by:</b> Picky Mango
+                </div>
+                <div className="blog-slider__text mb-2">
+                  <b>From Country:</b> Jordan
+                </div>
+                <div className="blog-slider__text">
+                  <b>Current Price:</b> 225 د.ا.‏
+                </div>
+                <Button
+                  size="large"
+                  color="primary"
+                  variant="contained"
+                  className="blog-slider__button rounded-pill"
+                >
+                  READ MORE
+                </Button>
+              </div>
+            </Fade>
+          </div>
+        </div>
+      </SwiperSlide>
+    ));
   return (
     <div
       className="d-flex justify-content-center align-items-center flex-column"
@@ -46,7 +92,6 @@ const Slider = () => {
           <Swiper
             onSlideChange={(a) => setIndex(a.realIndex)}
             initialSlide={0}
-            spaceBetween={30}
             className="blog-slider overflow-visible unaffected"
             effect="fade"
             pagination={{
@@ -56,48 +101,7 @@ const Slider = () => {
             grabCursor
             loop
           >
-            {images.map((el, i) => (
-              <SwiperSlide key={i} className="blog-slider__item">
-                <div className="row w-100">
-                  <div className="col-lg-5">
-                    <Zoom when={index === i}>
-                      <div className="blog-slider__img">
-                        <img src={el} alt={el} />
-                      </div>
-                    </Zoom>
-                  </div>
-                  <div className="col-lg-7">
-                    <Fade when={index === i} cascade top>
-                      <div className="blog-slider__content">
-                        <span className="blog-slider__code">
-                          Category: الالكترونيات
-                        </span>
-                        <div className="blog-slider__title">
-                          ثلاجة ناشونال الكترك
-                        </div>
-                        <div className="blog-slider__text mb-2">
-                          <b>Ad Owned by:</b> Picky Mango
-                        </div>
-                        <div className="blog-slider__text mb-2">
-                          <b>From Country:</b> Jordan
-                        </div>
-                        <div className="blog-slider__text">
-                          <b>Current Price:</b> 225 د.ا.‏
-                        </div>
-                        <Button
-                          size="large"
-                          color="primary"
-                          variant="contained"
-                          className="blog-slider__button rounded-pill"
-                        >
-                          READ MORE
-                        </Button>
-                      </div>
-                    </Fade>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
+            {showSlides()}
           </Swiper>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { Paper } from "@material-ui/core";
 import React from "react";
-import { Bounce, Fade, Roll } from "react-reveal";
+import { Fade, Roll } from "react-reveal";
 import Tada from "react-reveal/Tada";
 import logo from "../../images/logo.png";
 
