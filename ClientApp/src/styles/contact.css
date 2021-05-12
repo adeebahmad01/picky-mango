@@ -11,11 +11,6 @@
   backface-visibility: hidden;
 }
 
-
-.calc_height {
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
 .drop_shadow {
   -webkit-filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.15));
   filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.15));
