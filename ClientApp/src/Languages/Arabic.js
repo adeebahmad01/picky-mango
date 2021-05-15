@@ -10,6 +10,11 @@ const Arabic = {
       poilcy: "سياسات",
       login: "تواصل معنا",
     },
+    searchbar: {
+      category: "الفئة",
+      location: "موقعك",
+      search_keyword: "كلمة البح",
+    },
   },
   home: {
     about: {

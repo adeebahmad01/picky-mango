@@ -42,6 +42,10 @@ code {
   border-top-right-radius: 0px !important;
 }
 
+.search_bar{
+  border: 1px solid #999;
+  border-bottom: none
+}
 
 .hero .swiper-button-next, .hero .swiper-button-prev {
   display: inline-block;
@@ -55,14 +59,21 @@ code {
   --swiper-navigation-size: 2rem;
   color: var(--color-primary);
   height: auto;
+  background-color: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e0e0e0;
 }
 
 .hero .swiper-button-prev {
-  right: 6rem;
+  right: 51%;
 }
 
 .hero .swiper-button-next {
-  right: 2.5rem;
+  left: 51%;
 }
 
 header a{

@@ -21,7 +21,7 @@
 .box {
   text-align: center;
   position: relative;
-  transition: 200ms ease-in-out;
+  transition: 200ms ease-in-out !important;
 }
 .box:hover {
   transform: translateY(-10px);
@@ -58,7 +58,6 @@
   z-index: 1;
   position: relative;
   top: 81px;
-  left: 1.6rem;
 }
 
 .hero-wrapper {
@@ -83,7 +82,6 @@
   z-index: 1;
   position: absolute;
   top: 37px;
-  right: -5px;
 }
 
 .hero-additionBlock:not(:last-child) {
@@ -193,7 +191,6 @@ svg.icon {
     min-height: 300px;
   }
   .homeTanent-additionWrapper {
-    left: 2em;
     top: 80px;
   }
   .hero-additionWrapper {
@@ -202,12 +199,6 @@ svg.icon {
 }
 
 @media (min-width: 768px) {
-  .homeTanent-additionWrapper {
-    right: 1em;
-  }
-  .hero-additionWrapper {
-    right: -45px;
-  }
   .hero-info {
     font-size: 18px;
     line-height: 30px;
@@ -246,11 +237,9 @@ svg.icon {
   }
   .homeTanent-additionWrapper {
     top: 74px;
-    right: 27em;
   }
   .hero-additionWrapper {
     top: 80px;
-    right: -50px;
   }
   .hero-additionBlock {
     width: 100px;
@@ -304,12 +293,10 @@ svg.icon {
 @media (min-width: 1200px) {
   .homeTanent-additionWrapper {
     top: 90px;
-    left: 2em;
     border-radius: 50%;
   }
   .hero-additionWrapper {
     top: 100px;
-    right: -55px;
   }
   .hero-cover img {
     height: 480px;

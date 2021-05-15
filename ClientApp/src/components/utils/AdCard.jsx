@@ -1,11 +1,14 @@
-import { Avatar, Button, Paper } from "@material-ui/core";
+import { Avatar, Button, CardActionArea, Paper } from "@material-ui/core";
 import React from "react";
 import { Bounce } from "react-reveal";
 
 const AdCard = () => {
   return (
     <Bounce top>
-      <Paper className="profile profile-long">
+      <Paper
+        component={CardActionArea}
+        className="profile box position-relative p-3 d-inline-block profile-long"
+      >
         <div className="row">
           <div className="col-lg-4 px-0">
             <div className="profile__image">
@@ -24,7 +27,7 @@ const AdCard = () => {
                 </div>
               </div>
             </div>
-            <div className="row">
+            <div className="row mb-3">
               <div className="col-lg-6">
                 <p className="profile__stats__title">Category</p>
                 <p className="profile__stats__title">Country</p>

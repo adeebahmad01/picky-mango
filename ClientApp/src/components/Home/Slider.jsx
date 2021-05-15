@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, EffectCoverflow, Navigation } from "swiper";
 import "swiper/swiper-bundle.min.css";
-import { Button, IconButton, Paper, Typography } from "@material-ui/core";
-import ArrowRight from "../../images/icons/ArrowIcon";
-import { Fade, Zoom } from "react-reveal";
+import { Button, Paper } from "@material-ui/core";
 import { useLanguage } from "../../hooks/useLanguage";
 SwiperCore.use([Pagination, EffectCoverflow, Navigation]);
 const Slider = () => {
   const { language } = useLanguage();
-  const [index, setIndex] = useState(0);
   const component = language.data.home.slider;
   const images = [
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/8b3346dc-7b9e-465c-91c6-f45feb238be4/8f3be4f4-0a94-47e0-ac95-909f2ce1edec.jpeg",
@@ -27,9 +24,9 @@ const Slider = () => {
   ];
   const showSlides = () =>
     images.map((el, i) => (
-      <SwiperSlide className="px-2" key={i}>
+      <SwiperSlide className={`px-2 ${language.direction}`} key={i}>
         <Paper className="container-fluid">
-          <div className="row">
+          <div className="row flex-row-reverse">
             <div className="col-12 col-sm-12 col-md-7">
               <div className="homeTanent-additionWrapper">
                 <div className="hero-additionBlock tanent-icon">
@@ -62,7 +59,7 @@ const Slider = () => {
                 </div>
               </div>
             </div>
-            <div className={`col-12 col-sm-12 col-md-5 ${language.direction}`}>
+            <div className={`col-12 col-sm-12 col-md-5`}>
               <div className="hero-body">
                 <h5 className="hero-info">{component.info}</h5>
                 <h3 className="hero-title">{component.title}</h3>
@@ -134,7 +131,7 @@ const Slider = () => {
                 <Button
                   variant="contained"
                   color="primary"
-                  className="rounded-pill mt-2"
+                  className="rounded-pill mt-4"
                 >
                   {component.button}
                 </Button>
@@ -146,16 +143,15 @@ const Slider = () => {
     ));
   return (
     <div
-      className="d-flex justify-content-center align-items-center flex-column"
+      className="pt-5 d-flex justify-content-center align-items-center flex-column"
       style={{ minHeight: `100vh` }}
     >
-      <div className="pt-5">
-        <div className="container hero">
+      <div className="border-top w-100">
+        <div className="container pt-4 hero">
           <Swiper
             autoplay={{ disableOnInteraction: false, delay: 2500 }}
             speed={500}
             style={{ overflowY: `visible` }}
-            onSlideChange={(a) => setIndex(a.realIndex)}
             initialSlide={0}
             className="unaffected pb-5"
             navigation={true}

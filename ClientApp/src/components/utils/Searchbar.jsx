@@ -9,6 +9,7 @@ import {
 import { Autocomplete } from "@material-ui/lab";
 import { Link } from "react-router-dom";
 import { ReactComponent as CloseIcon } from "../../images/icons/close.svg";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
 const Searchbar = () => {
   const [category, setCategory] = useState("");
   const [defaultLocation, setLocation] = useState("");
+  const { language } = useLanguage();
+  const component = language.data.header.searchbar;
   const categories = [
     "ازياء",
     "الصحة",
@@ -186,14 +189,14 @@ const Searchbar = () => {
   ];
   const classes = useStyles();
   return (
-    <Paper
+    <div
       className={`search_bar border-bottom-0 row bg-white w-100 ${classes.root}`}
     >
       <div className="col-lg px-0">
         <TextField
-          InputProps={{ className: `bg-white` }}
+          InputProps={{ className: `bg-white pb-2` }}
           fullWidth
-          label="Search Keyword"
+          placeholder={component.search_keyword}
           variant="filled"
           type="search"
         />
@@ -206,16 +209,16 @@ const Searchbar = () => {
           getOptionLabel={(option) => option}
           style={{ width: `100%` }}
           renderInput={(params) => {
+            console.log(params);
             params.InputProps.className =
-              params.InputProps.className + " unaffected bg-white";
+              params.InputProps.className + " bg-white pb-2";
             return (
               <TextField
                 {...params}
                 onChange={(e) => setLocation(e.target.value)}
                 value={category}
-                label="Categories"
+                placeholder={component.category}
                 variant="filled"
-                className="unaffected rounded-0"
               />
             );
           }}
@@ -230,15 +233,15 @@ const Searchbar = () => {
           style={{ width: `100%` }}
           renderInput={(params) => {
             params.InputProps.className =
-              params.InputProps.className + " unaffected bg-white";
+              params.InputProps.className + " bg-white pb-2";
             return (
               <TextField
                 {...params}
                 onChange={(e) => setLocation(e.target.value)}
                 value={defaultLocation}
-                label="Location"
+                placeholder={component.location}
                 variant="filled"
-                className="unaffected english"
+                className="english"
               />
             );
           }}
@@ -258,7 +261,7 @@ const Searchbar = () => {
           Search
         </Button>
       </div>
-    </Paper>
+    </div>
   );
 };
 

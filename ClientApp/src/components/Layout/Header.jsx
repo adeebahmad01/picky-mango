@@ -23,7 +23,6 @@ const Header = () => {
                 <span className="border border-top-0 border-bottom-0 d-inline-block">
                   <Button
                     component={Link}
-                    endIcon={<LoginIcon width={15} />}
                     className="px-3 fw-light"
                     to="/login"
                   >
@@ -53,7 +52,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg navbar-light header-wrapper">
               <Link className="navbar-brand header-logo" to="/">
                 <img
-                  width={200}
+                  width={250}
                   alt="picky-mango"
                   className="d-inline-block align-top"
                   src={logo}

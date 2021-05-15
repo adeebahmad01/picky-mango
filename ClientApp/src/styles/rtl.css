@@ -11,3 +11,35 @@
     right: 0;
   }
 }
+
+.rtl .hero-additionWrapper {
+  right: -5px;
+}
+.rtl .homeTanent-additionWrapper {
+  left: 1.6rem;
+}
+
+@media (min-width: 768px) {
+  .rtl .hero-additionWrapper {
+    right: -45px;
+  }
+  .rtl .homeTanent-additionWrapper {
+    left: 1em;
+  }
+}
+@media (min-width: 992px) {
+  .rtl .hero-additionWrapper {
+    right: -50px;
+  }
+  .rtl .homeTanent-additionWrapper {
+    right: 27em;
+  }
+}
+@media (min-width: 1200px) {
+  .rtl .hero-additionWrapper {
+    right: -55px;
+  }
+  .rtl .homeTanent-additionWrapper {
+    left: 2em;
+  }
+}

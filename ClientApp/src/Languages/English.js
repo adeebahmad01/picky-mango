@@ -10,6 +10,11 @@ const English = {
       poilcy: "Policy",
       login: "Sign Up",
     },
+    searchbar: {
+      category: "Category",
+      location: "Location",
+      search_keyword: "Search Keyword",
+    },
   },
   home: {
     about: {
