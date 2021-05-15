@@ -1,16 +1,15 @@
-import { Button, Paper, Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import React from "react";
-import { Bounce } from "react-reveal";
 import ArrowRight from "../../images/icons/ArrowIcon";
 import AdCard from "../utils/AdCard";
 
-const Ads = () => {
+const Auctions = () => {
   return (
     <div>
       <div className="container">
         <div className="d-flex justify-content-between container">
           <Typography variant="h2" className="my-4">
-            Latest Ads
+            Latest Auctions
           </Typography>
           <div className="d-flex justify-content-center align-items-center">
             <Button
@@ -47,4 +46,4 @@ const Ads = () => {
   );
 };
 
-export default Ads;
+export default Auctions;

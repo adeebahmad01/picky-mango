@@ -119,7 +119,7 @@ const Categories = () => {
       <div className="container">
         <div className="d-flex justify-content-between container">
           <Typography className="my-4" variant="h2">
-            Categories
+            Featured Categories
           </Typography>
         </div>
         <div className="row">
