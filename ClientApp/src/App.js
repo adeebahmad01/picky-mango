@@ -36,7 +36,7 @@ const App = () => {
       },
     },
     typography: {
-      fontFamily: `"Poppins","hinted-RB", sans-serif`,
+      fontFamily: `"Poppins","Droid Arabic Kufi", sans-serif`,
       fontWeightBold: 700,
       fontWeightLight: 300,
       fontWeightMedium: 600,

@@ -17,12 +17,11 @@ const LanguageSwitch = () => {
         id={id.current}
         className="lol-checkbox"
       />
-      <label className="button" for={id.current}>
+      <label className="button" htmlFor={id.current}>
         <div className="knob"></div>
         <div className="subscribe">{arabic.shorthand}</div>
         <div className="alright">{english.shorthand}</div>
       </label>
-      <span> {language.name} </span>
     </>
   );
 };

@@ -1,33 +1,27 @@
 import React, { useState } from "react";
-import { Button, IconButton, makeStyles, Paper, TextField } from "@material-ui/core";
+import {
+  Button,
+  IconButton,
+  makeStyles,
+  Paper,
+  TextField,
+} from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { Link } from "react-router-dom";
-import { ReactComponent as CloseIcon } from "../../images/icons/close.svg"
+import { ReactComponent as CloseIcon } from "../../images/icons/close.svg";
 
-const useStyles = makeStyles((theme)=>({
-  root:{
+const useStyles = makeStyles((theme) => ({
+  root: {
     transition: `all 0.3s ease-in`,
-    transform: (props)=> `translateY(${props.open ? 0 : `-100%`})`
-  },
-  rounded: {
-    borderRadius: ()=> window.innerWidth > 992 ? `56px` : 0
-  },
-  label: {
-    paddingLeft: ()=> window.innerWidth > 992 ? `2rem` : 0
-  },
-  random: {
-    "& .MuiFilledInput-root": {
-      paddingLeft: ()=> window.innerWidth > 992 ? `1.5rem` : 0
-    }
   },
   icon: {
     position: `absolute`,
     right: 10,
-    top: 10
-  }
-}))
+    top: 10,
+  },
+}));
 
-const Searchbar = ({open,onClose}) => {
+const Searchbar = () => {
   const [category, setCategory] = useState("");
   const [defaultLocation, setLocation] = useState("");
   const categories = [
@@ -190,80 +184,80 @@ const Searchbar = ({open,onClose}) => {
     "འབྲུག",
     "المملكة المغربية",
   ];
-  const classes = useStyles({open})
+  const classes = useStyles();
   return (
     <Paper
-      className={`search_bar bg-white position-fixed w-100 py-5 ${classes.root}`}
-      style={{ top: `-1px`, zIndex: 100 }}
+      className={`search_bar border-bottom-0 row bg-white w-100 ${classes.root}`}
     >
-      <div className="container">
-        <div className={`row bg-white overflow-hidden ${classes.rounded}`}>
-          <div className="col-lg px-0 pleft">
-            <TextField
-              fullWidth
-              label="Search Keyword"
-              className={classes.random}
-              variant="filled"
-              InputLabelProps={{className: classes.label}}
-            />
-          </div>
-          <div className="col-lg px-0">
-            <Autocomplete
-              id="categories"
-              options={categories}
-              renderOption={(option) => <span className=""> {option} </span>}
-              onInputChange={(e, value) => setCategory(value)}
-              getOptionLabel={(option) => option}
-              style={{ width: `100%` }}
-              InputProps={{ className: ` unaffected` }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  onChange={(e) => setLocation(e.target.value)}
-                  value={category}
-                  label="Categories"
-                  variant="filled"
-                  className="unaffected rounded-0"
-                />
-              )}
-            />
-          </div>
-          <div className="col-lg px-0">
-            <Autocomplete
-              id="location"
-              options={location}
-              onInputChange={(e, value) => setLocation(value)}
-              getOptionLabel={(option) => option}
-              style={{ width: `100%` }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  onChange={(e) => setLocation(e.target.value)}
-                  value={defaultLocation}
-                  label="Location"
-                  variant="filled"
-                  className="unaffected english"
-                />
-              )}
-            />
-          </div>
-          <div className="col-lg-3 px-0">
-            <Button
-              component={Link}
-              to={{
-                pathname: "/results",
-              }}
-              variant="contained"
-              color="primary"
-              fullWidth
-              className="rounded-0 text-white h-100"
-            >
-              Search
-            </Button>
-          </div>
-        </div>
+      <div className="col-lg px-0">
+        <TextField
+          InputProps={{ className: `bg-white` }}
+          fullWidth
+          label="Search Keyword"
+          variant="filled"
+          type="search"
+        />
       </div>
-      <IconButton onClick={onClose} className={classes.icon}><CloseIcon width={20} height={20} /></IconButton>
+      <div className="col-lg px-0">
+        <Autocomplete
+          id="categories"
+          options={categories}
+          onInputChange={(e, value) => setCategory(value)}
+          getOptionLabel={(option) => option}
+          style={{ width: `100%` }}
+          renderInput={(params) => {
+            params.InputProps.className =
+              params.InputProps.className + " unaffected bg-white";
+            return (
+              <TextField
+                {...params}
+                onChange={(e) => setLocation(e.target.value)}
+                value={category}
+                label="Categories"
+                variant="filled"
+                className="unaffected rounded-0"
+              />
+            );
+          }}
+        />
+      </div>
+      <div className="col-lg px-0">
+        <Autocomplete
+          id="location"
+          options={location}
+          onInputChange={(e, value) => setLocation(value)}
+          getOptionLabel={(option) => option}
+          style={{ width: `100%` }}
+          renderInput={(params) => {
+            params.InputProps.className =
+              params.InputProps.className + " unaffected bg-white";
+            return (
+              <TextField
+                {...params}
+                onChange={(e) => setLocation(e.target.value)}
+                value={defaultLocation}
+                label="Location"
+                variant="filled"
+                className="unaffected english"
+              />
+            );
+          }}
+        />
+      </div>
+      <div className="col-lg-3 px-0">
+        <Button
+          component={Link}
+          to={{
+            pathname: "/results",
+          }}
+          variant="contained"
+          color="primary"
+          fullWidth
+          className="rounded-0 shadow-none text-white h-100"
+        >
+          Search
+        </Button>
+      </div>
     </Paper>
   );
 };

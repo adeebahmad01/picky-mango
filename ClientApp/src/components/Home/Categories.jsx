@@ -1,3 +1,4 @@
+import { Typography } from "@material-ui/core";
 import React from "react";
 import { Bounce } from "react-reveal";
 import Category from "../utils/Caregory";
@@ -116,10 +117,15 @@ const Categories = () => {
   return (
     <div>
       <div className="container">
+        <div className="d-flex justify-content-between container">
+          <Typography className="my-4" variant="h2">
+            Categories
+          </Typography>
+        </div>
         <div className="row">
-          {categories.map((el) => (
-            <div className="col-lg-4 py-2">
-              <Bounce top>
+          {categories.map((el, i) => (
+            <div key={i} className="col-lg-4 py-2">
+              <Bounce top delay={(i % 3) * 50}>
                 <Category {...el} />
               </Bounce>
             </div>

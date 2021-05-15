@@ -40,6 +40,9 @@ const LanguageProvider = ({ children }) => {
   }, []);
   useEffect(() => {
     localStorage.setItem("language", active);
+    document.querySelector("html").lang = languages
+      .get(active)
+      .shorthand.toLowerCase();
   }, [active]);
   const language = languages.get(active);
   const english = languages.get(eng);

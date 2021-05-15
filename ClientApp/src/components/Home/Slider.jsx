@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, {
-  Pagination,
-  Parallax,
-  EffectFade,
-  Navigation,
-} from "swiper";
+import SwiperCore, { Pagination, EffectCoverflow, Navigation } from "swiper";
 import "swiper/swiper-bundle.min.css";
-import { Button, IconButton, Typography } from "@material-ui/core";
+import { Button, IconButton, Paper, Typography } from "@material-ui/core";
 import ArrowRight from "../../images/icons/ArrowIcon";
 import { Fade, Zoom } from "react-reveal";
-SwiperCore.use([Parallax, Pagination, EffectFade, Navigation]);
+import { useLanguage } from "../../hooks/useLanguage";
+SwiperCore.use([Pagination, EffectCoverflow, Navigation]);
 const Slider = () => {
+  const { language } = useLanguage();
   const [index, setIndex] = useState(0);
+  const component = language.data.home.slider;
   const images = [
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/8b3346dc-7b9e-465c-91c6-f45feb238be4/8f3be4f4-0a94-47e0-ac95-909f2ce1edec.jpeg",
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/fd3298b9-3eba-4c8d-9c8a-96d366af1b86/12066ada-cb5e-408b-8469-1feb82e8f3fc.jpeg",
@@ -29,48 +27,121 @@ const Slider = () => {
   ];
   const showSlides = () =>
     images.map((el, i) => (
-      <SwiperSlide key={i} className="blog-slider__item">
-        <div className="row w-100">
-          <div className="col-lg-5">
-            <Zoom when={index === i}>
-              <div className="blog-slider__img">
-                <img src={el} alt={el} />
+      <SwiperSlide className="px-2" key={i}>
+        <Paper className="container-fluid">
+          <div className="row">
+            <div className="col-12 col-sm-12 col-md-7">
+              <div className="homeTanent-additionWrapper">
+                <div className="hero-additionBlock tanent-icon">
+                  <img
+                    alt="branding"
+                    width="36px"
+                    src="https://emazad.sa/assets/branding/images/icons/Thiqah.svg"
+                  />
+                  <div className="tanent-name">
+                    <p className="on-top">خاصة</p>
+                  </div>
+                </div>
               </div>
-            </Zoom>
-          </div>
-          <div className="col-lg-7">
-            <Fade when={index === i} cascade top>
-              <div className="blog-slider__content">
-                <Typography
-                  variant="h2"
-                  className="blog-slider__code text_colored"
-                >
-                  Happening Now
-                </Typography>
-                <Typography variant="h1" className="blog-slider__title">
-                  ثلاجة ناشونال الكترك
-                </Typography>
-                <div className="blog-slider__text mb-2">
-                  <b>Ad Owned by:</b> Picky Mango
+              <div className="hero-wrapper">
+                <div className="hero-cover">
+                  <img alt="hero-cover" src={el} />
                 </div>
-                <div className="blog-slider__text mb-2">
-                  <b>From Country:</b> Jordan
+                <div className="hero-additionWrapper">
+                  <div className="hero-additionBlock">
+                    <span className="text mb-3">{component.share_token}</span>
+                    <span className="value">210,000</span>
+                    <span className="symbol">{component.currency}</span>
+                  </div>
+                  <div className="hero-additionBlock">
+                    <span className="text ">{component.from}</span>
+                    <span className="mb-md-1 value">26/4/2021</span>
+                    <span className="text">{component.to}</span>
+                    <span className="value">10/6/2021</span>
+                  </div>
                 </div>
-                <div className="blog-slider__text">
-                  <b>Current Price:</b> 225 د.ا.‏
+              </div>
+            </div>
+            <div className={`col-12 col-sm-12 col-md-5 ${language.direction}`}>
+              <div className="hero-body">
+                <h5 className="hero-info">{component.info}</h5>
+                <h3 className="hero-title">{component.title}</h3>
+                <p className="hero-desc text-truncate">{component.category}</p>
+                <div className="counter">
+                  <span className="counter-icon">
+                    <svg className="icon">
+                      <path
+                        fill="#282b2b"
+                        d="M19.994 8.612l1.841-1.841c0.624-0.624 1.638-0.622 2.261-0l1.134 1.134c0.624 0.624 0.629 1.632-0 2.26l-1.841 1.841c1.396 2.050 2.212 4.527 2.212 7.194 0 7.069-5.731 12.8-12.8 12.8s-12.8-5.731-12.8-12.8c0-6.527 4.886-11.914 11.2-12.701v-1.699h-1.593c-0.887 0-1.607-0.719-1.607-1.598v-1.603c0-0.883 0.722-1.598 1.607-1.598h6.386c0.887 0 1.607 0.719 1.607 1.598v1.603c0 0.883-0.722 1.598-1.607 1.598h-1.593v1.699c2.056 0.256 3.961 1 5.594 2.113zM12.8 28.8c5.302 0 9.6-4.298 9.6-9.6s-4.298-9.6-9.6-9.6c-5.302 0-9.6 4.298-9.6 9.6s4.298 9.6 9.6 9.6z"
+                      />
+                      <path
+                        style={{ fill: "var(--color-primary)" }}
+                        d="M12 12.807c0-0.887 0.71-1.607 1.6-1.607 0.884 0 1.6 0.722 1.6 1.607v6.386c0 0.887-0.71 1.607-1.6 1.607-0.884 0-1.6-0.722-1.6-1.607v-6.386z"
+                      />
+                    </svg>
+                  </span>
+                  <div className="counter-item">
+                    <span className="counter--value">
+                      <div className="count-down" style={{ display: "inline" }}>
+                        <span className="hand hand-d">
+                          <span className="digital digital-2 ">2</span>
+                          <span className="digital digital-8 ">8</span>
+                        </span>
+                      </div>
+                    </span>
+                    <div className="counter--label"> {component.days}</div>
+                  </div>
+                  <div className="counter-item">
+                    <span className="counter--value">
+                      <div className="count-down" style={{ display: "inline" }}>
+                        <span className="hand hand-h">
+                          <span className="digital digital-1 ">1</span>
+                          <span className="digital digital-0 ">0</span>
+                        </span>
+                      </div>
+                    </span>
+                    <div className="counter--label"> {component.hours}</div>
+                  </div>
+                  <div className="counter-item">
+                    <span className="counter--value">
+                      <div className="count-down" style={{ display: "inline" }}>
+                        <span className="hand hand-m">
+                          <span className="digital digital-1 ">1</span>
+                          <span className="digital digital-9 ">9</span>
+                        </span>
+                      </div>
+                    </span>
+                    <strong className="counter--label">
+                      {" "}
+                      {component.minutes}
+                    </strong>
+                  </div>
+                  <div className="counter-item">
+                    <div className="counter--value">
+                      <div className="count-down" style={{ display: "inline" }}>
+                        <span className="hand hand-s">
+                          <span className="digital digital-5 ">5</span>
+                          <span className="digital digital-4 ">4</span>
+                        </span>
+                      </div>
+                    </div>
+                    <strong className="counter--label">
+                      {" "}
+                      {component.seconds}
+                    </strong>
+                  </div>
                 </div>
                 <Button
-                  size="large"
-                  color="primary"
                   variant="contained"
-                  className="blog-slider__button rounded-pill"
+                  color="primary"
+                  className="rounded-pill mt-2"
                 >
-                  READ MORE
+                  {component.button}
                 </Button>
               </div>
-            </Fade>
+            </div>
           </div>
-        </div>
+        </Paper>
       </SwiperSlide>
     ));
   return (
@@ -78,25 +149,13 @@ const Slider = () => {
       className="d-flex justify-content-center align-items-center flex-column"
       style={{ minHeight: `100vh` }}
     >
-      <div>
-        <div className="d-flex justify-content-between container">
-          <Typography variant="h2">Latest Ads</Typography>
-          <IconButton className="rounded-pill w-auto px-3 unaffected">
-            {" "}
-            <span>
-              See All <ArrowRight width={20} />
-            </span>{" "}
-          </IconButton>
-        </div>
-        <div className="container">
+      <div className="pt-5">
+        <div className="container hero">
           <Swiper
+            style={{ overflowY: `visible` }}
             onSlideChange={(a) => setIndex(a.realIndex)}
             initialSlide={0}
-            className="blog-slider overflow-visible unaffected"
-            effect="fade"
-            pagination={{
-              clickable: true,
-            }}
+            className="unaffected pb-5"
             navigation={true}
             grabCursor
             loop

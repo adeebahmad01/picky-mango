@@ -1,14 +1,26 @@
 @font-face {
-  font-family: "hinted-RB";
-  src: local("hinted-RB"), url(fonts/RB\ Regular.ttf);
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 400;
+  src: 
+       local("Droid Arabic Kufi"), url('fonts/DroidKufi-Regular.woff2') format('woff2'),
+       local("Droid Arabic Kufi"), url('fonts/DroidKufi-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 700;
+  src: 
+       local("Droid Arabic Kufi"), url('fonts/DroidKufi-Bold.woff2') format('woff2'),
+       local("Droid Arabic Kufi"), url('fonts/DroidKufi-Bold.ttf') format('truetype');
 }
 @font-face {
   font-family: "Poppins";
-  src: local("Poppins"), url(fonts/Poppins-Medium.ttf);
+  src: local("Poppins"), url(./fonts/Poppins-Medium.ttf);
 }
 
 * {
-  font-family: "Poppins","hinted-RB", sans-serif;
+  font-family: "Poppins","Droid Arabic Kufi", sans-serif;
 }
 
 body {
@@ -31,28 +43,58 @@ code {
 }
 
 
-[class*="swiper-button-"]::after {
-  color: var(--color-primary);
-  
-}
-
-[class*="swiper-button-"]{
+.hero .swiper-button-next, .hero .swiper-button-prev {
+  display: inline-block;
   position: absolute;
-  right: 40px !important;
-  bottom: 40px !important;
-  width: 30px !important;
-  height: 30px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  left: auto !important;
-  top: auto !important;
-  --swiper-navigation-size: 1rem
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: 4.5rem;
+  margin: 0;
+  background: 0 0;
+  --swiper-navigation-size: 2rem;
+  color: var(--color-primary);
+  height: auto;
 }
 
-.swiper-button-prev{
-  right: 80px !important;
+.hero .swiper-button-prev {
+  right: 6rem;
+}
+
+.hero .swiper-button-next {
+  right: 2.5rem;
+}
+
+header a{
+  color: #333;
+  position: relative;
+}
+header section .nav-link::before{
+  content:"";
+  color: #333;
+  height: 2px;
+  width: 0;
+  transition: all 0.2s;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: var(--color-primary);
+}
+
+a{
+  color: #333;
+}
+
+header section .nav-link:hover::before,.active::before{
+  width: 100% !important;
+}
+
+.active,a:hover{
+  color: var(--color-primary);
+}
+
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+  opacity: .35;
+  cursor: auto;
+  pointer-events: none;
 }

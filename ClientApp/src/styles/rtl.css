@@ -3,7 +3,7 @@
 }
 
 .rtl * {
-  font-family: "Poppins", "hinted-RB", sans-serif;
+  font-family: "Droid Arabic Kufi", "Poppins", sans-serif;
 }
 
 @media (min-width: 992px) {
