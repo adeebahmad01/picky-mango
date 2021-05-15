@@ -3,8 +3,10 @@ import React from "react";
 import { Fade, Roll } from "react-reveal";
 import Tada from "react-reveal/Tada";
 import logo from "../../images/logo.png";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const Footer = () => {
+  const { language } = useLanguage();
   return (
     <Paper component="footer" elevation={4} className="py-5 mt-4">
       <div className="container py-4">
@@ -36,10 +38,14 @@ const Footer = () => {
             <div className="row">
               <div className="col-lg-12">
                 <h4 className="font-weight-bold">
-                  <Roll cascade left>
-                    We collaborate with ambitious businesses and people; let's
-                    build something great together
-                  </Roll>
+                  {language.shorthand === "EN" ? (
+                    <Roll cascade left>
+                      One of the leading international Web based Online Auction
+                      Houses
+                    </Roll>
+                  ) : (
+                    "واحدة من دور المزادات العالمية الرائدة على الإنترنت القائمة على الويب"
+                  )}
                 </h4>
               </div>
               <div className="w-100 my-4" />

@@ -1,15 +1,19 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, EffectCoverflow, Navigation } from "swiper";
+import SwiperCore, {
+  Pagination,
+  EffectCoverflow,
+  Navigation,
+  Autoplay,
+} from "swiper";
 import "swiper/swiper-bundle.min.css";
 import { Button, Paper } from "@material-ui/core";
 import { useLanguage } from "../../hooks/useLanguage";
-SwiperCore.use([Pagination, EffectCoverflow, Navigation]);
+SwiperCore.use([Pagination, EffectCoverflow, Navigation, Autoplay]);
 const Slider = () => {
   const { language } = useLanguage();
   const component = language.data.home.slider;
   const images = [
-    "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/8b3346dc-7b9e-465c-91c6-f45feb238be4/8f3be4f4-0a94-47e0-ac95-909f2ce1edec.jpeg",
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/fd3298b9-3eba-4c8d-9c8a-96d366af1b86/12066ada-cb5e-408b-8469-1feb82e8f3fc.jpeg",
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/2fd5466a-7acd-4364-8531-54339ac22861/d4cc0773-bf3b-4ed2-a0f5-98f3ad01428f.jpeg",
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/8bb26a40-9b7b-4fad-87f0-8937209abfba/bcf42130-a2a2-4fd2-85de-4dbaa0c0d161.jpeg",
