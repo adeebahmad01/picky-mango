@@ -152,6 +152,8 @@ const Slider = () => {
       <div className="pt-5">
         <div className="container hero">
           <Swiper
+            autoplay={{ disableOnInteraction: false, delay: 2500 }}
+            speed={500}
             style={{ overflowY: `visible` }}
             onSlideChange={(a) => setIndex(a.realIndex)}
             initialSlide={0}
