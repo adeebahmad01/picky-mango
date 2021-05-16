@@ -1,11 +1,19 @@
 import { Paper } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Fade, Roll } from "react-reveal";
 import Tada from "react-reveal/Tada";
 import logo from "../../images/logo.png";
 import { useLanguage } from "../../hooks/useLanguage";
 
 const Footer = () => {
+  const [scroll, setScroll] = useState(false);
+  useEffect(() => {
+    const handleScroll = () =>
+      setScroll(window.scrollY >= window.innerHeight / 2);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   const { language } = useLanguage();
   return (
     <Paper component="footer" elevation={4} className="py-5 mt-4">
@@ -123,6 +131,14 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <button
+        onClick={() => window.scrollTo({ behavior: "smooth", top: 0 })}
+        className={`not scroll_to_top position-fixed text-decoration-none text-white${
+          scroll ? " acitve" : ""
+        }`}
+      >
+        ⇑
+      </button>
     </Paper>
   );
 };

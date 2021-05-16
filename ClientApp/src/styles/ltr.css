@@ -33,15 +33,12 @@
   .ltr .hero-additionWrapper {
     left: -50px;
   }
-  .ltr .homeTanent-additionWrapper {
-    left: 27em;
-  }
 }
 @media (min-width: 1200px) {
   .ltr .hero-additionWrapper {
     left: -55px;
   }
   .ltr .homeTanent-additionWrapper {
-    right: 2em;
+    right: -2em;
   }
 }

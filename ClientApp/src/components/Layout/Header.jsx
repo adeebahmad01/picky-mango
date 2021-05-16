@@ -15,7 +15,7 @@ const Header = () => {
   const data = language.data.header.links;
   return (
     <>
-      <header className="header" data-class="sticky-top">
+      <header id="header" className="header" data-class="sticky-top">
         <div className="border-bottom">
           <div className="container">
             <div className="row">

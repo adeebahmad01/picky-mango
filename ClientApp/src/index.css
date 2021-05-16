@@ -53,19 +53,20 @@ code {
   top: auto;
   left: auto;
   right: auto;
-  bottom: 4.5rem;
+  bottom: 0rem;
   margin: 0;
   background: 0 0;
-  --swiper-navigation-size: 2rem;
-  color: var(--color-primary);
+  --swiper-navigation-size: 1rem;
+  color: #fff;
   height: auto;
-  background-color: #fff;
+  background-image: linear-gradient(to left bottom,var(--color-primary),var(--color-primary-dark));
   width: 2.5rem;
   height: 2.5rem;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #e0e0e0;
+  border: 1px solid var(--color-primary);
 }
 
 .hero .swiper-button-prev {
@@ -108,4 +109,10 @@ header section .nav-link:hover::before,.active::before{
   opacity: .35;
   cursor: auto;
   pointer-events: none;
+}
+.border-left{
+  border-left: 1px solid #dee2e6!important;
+}
+.border-right{
+  border-right: 1px solid #dee2e6!important;
 }

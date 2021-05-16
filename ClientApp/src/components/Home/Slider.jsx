@@ -150,8 +150,8 @@ const Slider = () => {
       className="pt-5 d-flex justify-content-center align-items-center flex-column"
       style={{ minHeight: `100vh` }}
     >
-      <div className="border-top w-100">
-        <div className="container pt-4 hero">
+      <div className="border-top mt-4 w-100">
+        <div className="container hero">
           <Swiper
             autoplay={{ disableOnInteraction: false, delay: 2500 }}
             speed={500}

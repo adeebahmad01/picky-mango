@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   Button,
   IconButton,
+  InputAdornment,
   makeStyles,
   Paper,
   TextField,
@@ -9,6 +10,7 @@ import {
 import { Autocomplete } from "@material-ui/lab";
 import { Link } from "react-router-dom";
 import { ReactComponent as CloseIcon } from "../../images/icons/close.svg";
+import { ReactComponent as SearchIcon } from "../../images/icons/search-box.svg";
 import { useLanguage } from "../../hooks/useLanguage";
 
 const useStyles = makeStyles((theme) => ({
@@ -19,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
     position: `absolute`,
     right: 10,
     top: 10,
+  },
+  input: {
+    "& input.MuiInputBase-input.MuiFilledInput-input.MuiInputBase-inputTypeSearch":
+      {
+        padding: `9px 4px`,
+      },
   },
 }));
 
@@ -194,7 +202,15 @@ const Searchbar = () => {
     >
       <div className="col-lg px-0">
         <TextField
-          InputProps={{ className: `bg-white pb-2` }}
+          InputProps={{
+            className: `bg-white py-2 border-right ${classes.input}`,
+            startAdornment: (
+              <InputAdornment className="mt-0" position="start">
+                {" "}
+                <SearchIcon width={18} />{" "}
+              </InputAdornment>
+            ),
+          }}
           fullWidth
           placeholder={component.search_keyword}
           variant="filled"
@@ -211,7 +227,7 @@ const Searchbar = () => {
           renderInput={(params) => {
             console.log(params);
             params.InputProps.className =
-              params.InputProps.className + " bg-white pb-2";
+              params.InputProps.className + " bg-white py-2 border-right";
             return (
               <TextField
                 {...params}
@@ -233,7 +249,7 @@ const Searchbar = () => {
           style={{ width: `100%` }}
           renderInput={(params) => {
             params.InputProps.className =
-              params.InputProps.className + " bg-white pb-2";
+              params.InputProps.className + " bg-white py-2 border-right";
             return (
               <TextField
                 {...params}
