@@ -28,8 +28,8 @@ const Slider = () => {
   ];
   const showSlides = () =>
     images.map((el, i) => (
-      <SwiperSlide className={`px-2 ${language.direction}`} key={i}>
-        <Paper className="container-fluid">
+      <SwiperSlide className={`px-2 pb-3 ${language.direction}`} key={i}>
+        <Paper elevation={3} className="container-fluid round">
           <div className="row flex-row-reverse">
             <div className="col-12 col-sm-12 col-md-7">
               <div className="homeTanent-additionWrapper">
@@ -147,17 +147,17 @@ const Slider = () => {
     ));
   return (
     <div
-      className="pt-5 d-flex justify-content-center align-items-center flex-column"
+      className="d-flex justify-content-center align-items-center flex-column"
       style={{ minHeight: `100vh` }}
     >
-      <div className="border-top mt-4 w-100">
+      <div className="w-100">
         <div className="container hero">
           <Swiper
             autoplay={{ disableOnInteraction: false, delay: 2500 }}
             speed={500}
             style={{ overflowY: `visible` }}
             initialSlide={0}
-            className="unaffected pb-5"
+            className="unaffected pt-4 pb-5"
             navigation={true}
             grabCursor
             loop

@@ -16,7 +16,7 @@
   right: -5px;
 }
 .rtl .homeTanent-additionWrapper {
-  left: 1.6rem;
+  left: -32em;
 }
 
 @media (min-width: 768px) {
@@ -24,7 +24,7 @@
     right: -45px;
   }
   .rtl .homeTanent-additionWrapper {
-    left: 1em;
+    left: -32em;
   }
 }
 @media (min-width: 992px) {
@@ -37,6 +37,6 @@
     right: -55px;
   }
   .rtl .homeTanent-additionWrapper {
-    left: -2em;
+    left: -32em;
   }
 }

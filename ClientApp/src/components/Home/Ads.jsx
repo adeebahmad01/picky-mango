@@ -1,10 +1,12 @@
 import { Button, Paper, Typography } from "@material-ui/core";
 import React from "react";
 import { Bounce } from "react-reveal";
+import { useLanguage } from "../../hooks/useLanguage";
 import ArrowRight from "../../images/icons/ArrowIcon";
 import AdCard from "../utils/AdCard";
 
 const Ads = () => {
+  const { language } = useLanguage();
   return (
     <div>
       <div className="container">
@@ -14,7 +16,18 @@ const Ads = () => {
           </Typography>
           <div className="d-flex justify-content-center align-items-center">
             <Button
-              endIcon={<ArrowRight width={16} />}
+              {...{
+                [language.direction === "ltr" ? "endIcon" : "startIcon"]: (
+                  <ArrowRight
+                    style={{
+                      transform: `rotate(${
+                        language.direction === "ltr" ? 0 : 180
+                      }deg)`,
+                    }}
+                    width={16}
+                  />
+                ),
+              }}
               className="rounded-pill w-auto px-3 unaffected"
               color="primary"
             >
