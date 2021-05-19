@@ -6,6 +6,10 @@
   direction: ltr;
 }
 
+.ltr .scroll_to_top {
+  right: 2rem;
+}
+
 @media (min-width: 992px) {
   .ltr .header-other li.nav-item:not(:last-child):after {
     right: 0;
@@ -39,5 +43,16 @@
   }
   .ltr .homeTanent-additionWrapper {
     right: -32em;
+  }
+}
+@media (min-width: 1400px) {
+  .ltr .hero-additionWrapper {
+    left: -70px;
+  }
+  .ltr .homeTanent-additionWrapper {
+    right: -37em;
+  }
+  .ltr .tanent-name {
+    left: -2.4rem;
   }
 }

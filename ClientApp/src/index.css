@@ -123,3 +123,39 @@ a:hover {
 .border-right {
   border-right: 1px solid #dee2e6 !important;
 }
+
+.animation-linear {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 25px;
+  width: 100%;
+  white-space: nowrap;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: customticker;
+  animation-name: customticker;
+  -webkit-animation-duration: 15s;
+  animation-duration: 15s;
+}
+
+@-webkit-keyframes customticker {
+  0% {
+    transform: translate3d(110%, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(-110%, 0, 0);
+  }
+}
+@keyframes customticker {
+  0% {
+    transform: translate3d(110%, 0, 0);
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(-110%, 0, 0);
+  }
+}

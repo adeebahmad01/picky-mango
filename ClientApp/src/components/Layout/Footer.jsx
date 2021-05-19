@@ -4,6 +4,7 @@ import { Fade, Roll } from "react-reveal";
 import Tada from "react-reveal/Tada";
 import logo from "../../images/logo.png";
 import { useLanguage } from "../../hooks/useLanguage";
+import Logo from "../utils/Logo";
 
 const Footer = () => {
   const [scroll, setScroll] = useState(false);
@@ -23,7 +24,7 @@ const Footer = () => {
             <div className="row">
               <div className="col-lg-3 px-0">
                 <Fade left>
-                  <img src={logo} alt="picky-mango" className="w-100" />
+                  <Logo className="w-100" />
                 </Fade>
               </div>
             </div>

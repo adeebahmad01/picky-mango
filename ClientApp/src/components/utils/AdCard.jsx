@@ -1,6 +1,7 @@
 import { Avatar, Button, CardActionArea, Paper } from "@material-ui/core";
 import React from "react";
 import { Bounce } from "react-reveal";
+import FullCounter from "./FullCounter";
 
 const AdCard = () => {
   return (
@@ -41,18 +42,21 @@ const AdCard = () => {
                 </p>
               </div>
             </div>
-            <div className="d-flex justify-content-between">
-              <div className="d-flex justify-content-center align-items-center">
-                <Avatar
-                  alt="SELLER"
-                  src="https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/8b3346dc-7b9e-465c-91c6-f45feb238be4/8f3be4f4-0a94-47e0-ac95-909f2ce1edec.jpeg"
-                />
-                <div className="mx-2">SELLER NAME</div>
-              </div>
-              <Button variant="contained" color="primary">
-                View Details
-              </Button>
+            <div>
+              <FullCounter time="23:59:59 31 dec 2021" />
             </div>
+          </div>
+          <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-center align-items-center">
+              <Avatar
+                alt="SELLER"
+                src="https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/8b3346dc-7b9e-465c-91c6-f45feb238be4/8f3be4f4-0a94-47e0-ac95-909f2ce1edec.jpeg"
+              />
+              <div className="mx-2">SELLER NAME</div>
+            </div>
+            <Button variant="contained" color="primary">
+              View Details
+            </Button>
           </div>
         </div>
       </Paper>

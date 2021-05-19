@@ -263,7 +263,7 @@ const Searchbar = () => {
           }}
         />
       </div>
-      <div className="col-lg-3 px-0">
+      <div className="col-lg-2 px-0">
         <Button
           component={Link}
           to={{

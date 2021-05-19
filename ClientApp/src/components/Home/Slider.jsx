@@ -9,6 +9,8 @@ import SwiperCore, {
 import "swiper/swiper-bundle.min.css";
 import { Button, Paper } from "@material-ui/core";
 import { useLanguage } from "../../hooks/useLanguage";
+import Counter from "../utils/Counter";
+import FullCounter from "../utils/FullCounter";
 SwiperCore.use([Pagination, EffectCoverflow, Navigation, Autoplay]);
 const Slider = () => {
   const { language } = useLanguage();
@@ -29,7 +31,7 @@ const Slider = () => {
   const showSlides = () =>
     images.map((el, i) => (
       <SwiperSlide className={`px-2 pb-3 ${language.direction}`} key={i}>
-        <Paper elevation={3} className="container-fluid round">
+        <div className="container-fluid round">
           <div className="row flex-row-reverse">
             <div className="col-12 col-sm-12 col-md-7">
               <div className="homeTanent-additionWrapper">
@@ -68,70 +70,7 @@ const Slider = () => {
                 <h5 className="hero-info">{component.info}</h5>
                 <h3 className="hero-title">{component.title}</h3>
                 <p className="hero-desc text-truncate">{component.category}</p>
-                <div className="counter">
-                  <span className="counter-icon">
-                    <svg className="icon">
-                      <path
-                        fill="#282b2b"
-                        d="M19.994 8.612l1.841-1.841c0.624-0.624 1.638-0.622 2.261-0l1.134 1.134c0.624 0.624 0.629 1.632-0 2.26l-1.841 1.841c1.396 2.050 2.212 4.527 2.212 7.194 0 7.069-5.731 12.8-12.8 12.8s-12.8-5.731-12.8-12.8c0-6.527 4.886-11.914 11.2-12.701v-1.699h-1.593c-0.887 0-1.607-0.719-1.607-1.598v-1.603c0-0.883 0.722-1.598 1.607-1.598h6.386c0.887 0 1.607 0.719 1.607 1.598v1.603c0 0.883-0.722 1.598-1.607 1.598h-1.593v1.699c2.056 0.256 3.961 1 5.594 2.113zM12.8 28.8c5.302 0 9.6-4.298 9.6-9.6s-4.298-9.6-9.6-9.6c-5.302 0-9.6 4.298-9.6 9.6s4.298 9.6 9.6 9.6z"
-                      />
-                      <path
-                        style={{ fill: "var(--color-primary)" }}
-                        d="M12 12.807c0-0.887 0.71-1.607 1.6-1.607 0.884 0 1.6 0.722 1.6 1.607v6.386c0 0.887-0.71 1.607-1.6 1.607-0.884 0-1.6-0.722-1.6-1.607v-6.386z"
-                      />
-                    </svg>
-                  </span>
-                  <div className="counter-item">
-                    <span className="counter--value">
-                      <div className="count-down" style={{ display: "inline" }}>
-                        <span className="hand hand-d">
-                          <span className="digital digital-2 ">2</span>
-                          <span className="digital digital-8 ">8</span>
-                        </span>
-                      </div>
-                    </span>
-                    <div className="counter--label"> {component.days}</div>
-                  </div>
-                  <div className="counter-item">
-                    <span className="counter--value">
-                      <div className="count-down" style={{ display: "inline" }}>
-                        <span className="hand hand-h">
-                          <span className="digital digital-1 ">1</span>
-                          <span className="digital digital-0 ">0</span>
-                        </span>
-                      </div>
-                    </span>
-                    <div className="counter--label"> {component.hours}</div>
-                  </div>
-                  <div className="counter-item">
-                    <span className="counter--value">
-                      <div className="count-down" style={{ display: "inline" }}>
-                        <span className="hand hand-m">
-                          <span className="digital digital-1 ">1</span>
-                          <span className="digital digital-9 ">9</span>
-                        </span>
-                      </div>
-                    </span>
-                    <strong className="counter--label">
-                      {" "}
-                      {component.minutes}
-                    </strong>
-                  </div>
-                  <div className="counter-item">
-                    <div className="counter--value">
-                      <div className="count-down" style={{ display: "inline" }}>
-                        <span className="hand hand-s">
-                          <span className="digital digital-5 ">5</span>
-                          <span className="digital digital-4 ">4</span>
-                        </span>
-                      </div>
-                    </div>
-                    <strong className="counter--label">
-                      {" "}
-                      {component.seconds}
-                    </strong>
-                  </div>
-                </div>
+                <FullCounter time="07 july 2021" />
                 <Button
                   variant="contained"
                   color="primary"
@@ -142,7 +81,7 @@ const Slider = () => {
               </div>
             </div>
           </div>
-        </Paper>
+        </div>
       </SwiperSlide>
     ));
   return (

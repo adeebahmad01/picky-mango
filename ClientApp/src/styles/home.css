@@ -218,22 +218,22 @@ svg.icon {
   }
   .tanent-name {
     background-color: #262929;
-    opacity: .5;
+    opacity: 0.5;
     height: 24px;
     width: 29%;
     position: absolute;
     top: 4.1rem;
     left: -1.4rem;
     border-radius: 12px;
-}
+  }
 }
 
 @media (min-width: 992px) {
   .hero-cover img {
-    height: 400px;
+    height: 350px;
   }
   .hero-cover {
-    min-height: 400px;
+    min-height: 350px;
   }
   .homeTanent-additionWrapper {
     top: 74px;
@@ -280,14 +280,14 @@ svg.icon {
   }
   .tanent-name {
     background-color: #262929;
-    opacity: .5;
+    opacity: 0.5;
     height: 24px;
     width: 18%;
     position: absolute;
     top: 4.1rem;
     right: -30px;
     border-radius: 12px;
-}
+  }
 }
 
 @media (min-width: 1200px) {
@@ -299,10 +299,10 @@ svg.icon {
     top: 100px;
   }
   .hero-cover img {
-    height: 480px;
+    height: 400px;
   }
   .hero-cover {
-    min-height: 480px;
+    min-height: 400px;
   }
   .hero-additionBlock {
     width: 110px;
@@ -312,20 +312,20 @@ svg.icon {
   }
   .tanent-name {
     background-color: #262929;
-    opacity: .5;
+    opacity: 0.5;
     height: 24px;
     width: 18%;
     position: absolute;
     top: 4.1rem;
     right: -30px;
     border-radius: 12px;
-}
+  }
 }
 
 .tanent-icon {
-  height: 60px!important;
-  width: 60px!important;
-  padding: 10px 13px!important;
+  height: 60px !important;
+  width: 60px !important;
+  padding: 10px 13px !important;
   font-size: 16px;
   border-radius: 50%;
 }
@@ -367,7 +367,6 @@ svg.icon {
 .profile-long .profile__cta {
   text-align: right;
   padding-top: 15px;
-
 }
 
 .profile__stats__title {
@@ -382,9 +381,9 @@ svg.icon {
   width: 100%;
   aspect-ratio: 1/1;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
-.profile__stats__info{
+.profile__stats__info {
   font-size: 16px;
 }

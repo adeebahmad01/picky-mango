@@ -3,6 +3,7 @@ import About from "./About";
 import Ads from "./Ads";
 import Auctions from "./Auctions";
 import Categories from "./Categories";
+import Floating from "./Floating";
 import Slider from "./Slider";
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
       <Ads />
       <Auctions />
       <Categories />
+      <Floating />
     </div>
   );
 };
