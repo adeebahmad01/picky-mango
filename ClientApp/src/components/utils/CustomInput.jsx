@@ -1,22 +1,38 @@
-import React from "react";
+import React, { forwardRef, useState } from "react";
 
-const CustomInput = ({
-  component: Component = "input",
-  className = "",
-  wrapperClassName = "",
-  labelClassName = "",
-  label = "",
-  wrapperProps,
-  labelProps,
-  ...props
-}) => {
+const CustomInput = (
+  {
+    component: Component = "input",
+    className = "",
+    wrapperClassName = "",
+    labelClassName = "",
+    label = "",
+    wrapperProps,
+    labelProps,
+    onChange,
+    ...props
+  },
+  ref
+) => {
+  const [hasVal, setHasVal] = useState(false);
+  const change = (e) => e.target.value && setHasVal(true);
   return (
     <div
+      ref={ref}
       className={`wrap-input100 validate-input ${wrapperClassName}`}
       data-validate={`Enter ${label}`}
       {...wrapperProps}
     >
-      <Component className={`input100 ${className}`} {...props} />
+      <Component
+        {...props}
+        onChange={(e) => {
+          change(e);
+          onChange?.(e);
+        }}
+        className={`input100 ${
+          hasVal || props.value ? "has-val" : ""
+        } ${className}`}
+      />
       <span
         {...labelProps}
         className={`focus-input100 ${labelClassName}`}
@@ -26,4 +42,4 @@ const CustomInput = ({
   );
 };
 
-export default CustomInput;
+export default forwardRef(CustomInput);

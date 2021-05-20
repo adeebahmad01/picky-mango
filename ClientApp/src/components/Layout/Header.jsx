@@ -9,8 +9,13 @@ import { useLanguage } from "../../hooks/useLanguage";
 import Searchbar from "../utils/Searchbar";
 import { Button, IconButton } from "@material-ui/core";
 import LanguageSwitch from "../utils/LanguageSwitch";
+import usePopup from "../../hooks/usePopup";
 
 const Header = () => {
+  const {
+    login: [, setLoginOpen],
+    signup: [, setSignupOpen],
+  } = usePopup();
   const { language } = useLanguage();
   const data = language.data.header.links;
   return (
@@ -24,7 +29,7 @@ const Header = () => {
                   <Button
                     component={Link}
                     className="px-3 fw-light"
-                    to="/login"
+                    onClick={() => setLoginOpen(true)}
                   >
                     Login
                   </Button>
@@ -34,10 +39,13 @@ const Header = () => {
                   <Button
                     component={Link}
                     className="px-3 fw-light"
-                    to="/login"
+                    onClick={() => setSignupOpen(true)}
                   >
                     SignUp
                   </Button>
+                </span>
+                <span className="mx-3 d-inline-block">
+                  <Link to="/privacy">Policy</Link>
                 </span>
               </div>
               <div className="col-lg-6 pt-2 d-flex justify-content-end">
