@@ -1,9 +1,7 @@
 import React from "react";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import Dialog from "@material-ui/core/Dialog";
-import { Link } from "react-router-dom";
 import CustomInput from "../utils/CustomInput";
 import {
   Button,
@@ -13,22 +11,25 @@ import {
 } from "@material-ui/core";
 import LoginButtons from "../utils/LoginButtons";
 import usePopup from "../../hooks/usePopup";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const Login = () => {
   const {
     login: [open, setOpen],
     signup: [, setSignupOpen],
   } = usePopup();
+  const { language } = useLanguage();
   const onClose = () => setOpen(false);
   return (
     <div>
       <Dialog
         PaperProps={{ style: { maxWidth: 400 } }}
         maxWidth="xs"
+        className={language.direction}
         onClose={onClose}
         open={open}
       >
-        <DialogContent dividers>
+        <DialogContent className="custom_scrollbar" dividers>
           <Typography className="text-center fw-bold mt-3 mb-4" variant="h4">
             Sign In to <span className="text_sec">Picky</span>{" "}
             <span className="text_colored">Mango</span>
@@ -37,7 +38,7 @@ const Login = () => {
           <div className="or py-3">
             <span className="d-inline-block px-3">OR</span>
           </div>
-          <CustomInput label="Email" />
+          <CustomInput type="email" label="Email" />
           <CustomInput type="password" label="Password" />
           <Button
             variant="contained"

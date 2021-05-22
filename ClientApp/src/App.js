@@ -13,7 +13,6 @@ import { StickyShareButtons } from "sharethis-reactjs";
 import Login from "./components/Login";
 import { PopupProvider } from "./hooks/usePopup";
 import SignUp from "./components/Signup";
-
 const colors = {
   primary: "#f39122",
   "primary-light": "#f3912255",

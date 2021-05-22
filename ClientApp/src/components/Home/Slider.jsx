@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   Pagination,
@@ -11,9 +11,11 @@ import { Button, Paper } from "@material-ui/core";
 import { useLanguage } from "../../hooks/useLanguage";
 import Counter from "../utils/Counter";
 import FullCounter from "../utils/FullCounter";
+import { Fade } from "react-reveal";
 SwiperCore.use([Pagination, EffectCoverflow, Navigation, Autoplay]);
 const Slider = () => {
   const { language } = useLanguage();
+  const [index, setIndex] = useState(0);
   const component = language.data.home.slider;
   const images = [
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/fd3298b9-3eba-4c8d-9c8a-96d366af1b86/12066ada-cb5e-408b-8469-1feb82e8f3fc.jpeg",
@@ -33,7 +35,7 @@ const Slider = () => {
       <SwiperSlide className={`px-2 pb-3 ${language.direction}`} key={i}>
         <div className="container-fluid round">
           <div className="row flex-row-reverse">
-            <div className="col-12 col-sm-12 col-md-7">
+            <div className="col-12 col-sm-12 col-md-7 position-relative">
               <div className="homeTanent-additionWrapper">
                 <div className="hero-additionBlock tanent-icon">
                   <img
@@ -66,33 +68,35 @@ const Slider = () => {
               </div>
             </div>
             <div className={`col-12 col-sm-12 col-md-5`}>
-              <div className="hero-body">
-                <h5 className="hero-info">{component.info}</h5>
-                <h3 className="hero-title">{component.title}</h3>
-                <p className="hero-desc text-truncate">{component.category}</p>
-                <FullCounter time="07 july 2021" />
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className="rounded-pill mt-4"
-                >
-                  {component.button}
-                </Button>
-              </div>
+              <Fade when={i === index} cascade top>
+                <div className="hero-body">
+                  <h5 className="hero-info">{component.info}</h5>
+                  <h3 className="hero-title">{component.title}</h3>
+                  <p className="hero-desc text-truncate">
+                    {component.category}
+                  </p>
+                  <FullCounter time="07 july 2021" />
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className="rounded-pill mt-4"
+                  >
+                    {component.button}
+                  </Button>
+                </div>
+              </Fade>
             </div>
           </div>
         </div>
       </SwiperSlide>
     ));
   return (
-    <div
-      className="d-flex justify-content-center align-items-center flex-column"
-      style={{ minHeight: `100vh` }}
-    >
+    <div className="d-flex justify-content-center align-items-center flex-column">
       <div className="w-100">
         <div className="container hero">
           <Swiper
             autoplay={{ disableOnInteraction: false, delay: 2500 }}
+            onSlideChange={(a) => setIndex(a.realIndex)}
             speed={500}
             style={{ overflowY: `visible` }}
             initialSlide={0}

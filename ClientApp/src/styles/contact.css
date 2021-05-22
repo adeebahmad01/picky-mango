@@ -244,3 +244,34 @@
   justify-content: center;
   align-items: center;
 }
+
+.social_card_icon {
+  text-decoration: none !important;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-right: 20px;
+  font-size: 25px;
+  overflow: hidden;
+  position: relative;
+}
+
+.social_card_icon {
+  transition: transform 0.2s linear 0s, border-radius 0.2s linear 0.2s;
+}
+.social_card_icon i {
+  transition: transform 0.2s linear 0s;
+}
+.social_card_icon:hover {
+  transform: rotate(-90deg);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.social_card_icon:hover i {
+  transform: rotate(90deg);
+}

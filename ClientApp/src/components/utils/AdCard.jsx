@@ -3,7 +3,7 @@ import React from "react";
 import { Bounce } from "react-reveal";
 import FullCounter from "./FullCounter";
 
-const AdCard = () => {
+const AdCard = ({ timer = false }) => {
   return (
     <Bounce top>
       <Paper
@@ -42,9 +42,7 @@ const AdCard = () => {
                 </p>
               </div>
             </div>
-            <div>
-              <FullCounter time="23:59:59 31 dec 2021" />
-            </div>
+            <div>{timer && <FullCounter time="23:59:59 31 dec 2021" />}</div>
           </div>
           <div className="d-flex justify-content-between">
             <div className="d-flex justify-content-center align-items-center">

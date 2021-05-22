@@ -57,3 +57,7 @@
     right: -2.4rem;
   }
 }
+
+.rtl input {
+  direction: rtl;
+}

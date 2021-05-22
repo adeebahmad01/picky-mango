@@ -56,8 +56,9 @@
 
 .homeTanent-additionWrapper {
   z-index: 1;
-  position: relative;
-  top: 81px;
+  width: 100%;
+  position: absolute;
+  top: 40px;
 }
 
 .hero-wrapper {
@@ -191,7 +192,7 @@ svg.icon {
     min-height: 300px;
   }
   .homeTanent-additionWrapper {
-    top: 80px;
+    top: 40px;
   }
   .hero-additionWrapper {
     top: 65px;
@@ -236,7 +237,7 @@ svg.icon {
     min-height: 350px;
   }
   .homeTanent-additionWrapper {
-    top: 74px;
+    top: 34px;
   }
   .hero-additionWrapper {
     top: 80px;
@@ -274,7 +275,7 @@ svg.icon {
     margin-bottom: 14px;
   }
   .hero-body {
-    padding-top: 105px;
+    padding-top: 1rem;
     max-width: 350px;
     margin-left: auto;
   }
@@ -292,7 +293,7 @@ svg.icon {
 
 @media (min-width: 1200px) {
   .homeTanent-additionWrapper {
-    top: 65px;
+    top: 1rem;
     border-radius: 50%;
   }
   .hero-additionWrapper {

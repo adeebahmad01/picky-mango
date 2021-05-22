@@ -15,7 +15,7 @@ const CustomInput = (
   ref
 ) => {
   const [hasVal, setHasVal] = useState(false);
-  const change = (e) => e.target.value && setHasVal(true);
+  const change = (e) => (e.target.value ? setHasVal(true) : setHasVal(false));
   return (
     <div
       ref={ref}

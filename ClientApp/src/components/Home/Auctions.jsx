@@ -36,22 +36,22 @@ const Auctions = () => {
         </div>
         <div className="row">
           <div className="col-lg-6 mb-3">
-            <AdCard />
+            <AdCard timer />
           </div>
           <div className="col-lg-6 mb-3">
-            <AdCard />
+            <AdCard timer />
           </div>
           <div className="col-lg-6 mb-3">
-            <AdCard />
+            <AdCard timer />
           </div>
           <div className="col-lg-6 mb-3">
-            <AdCard />
+            <AdCard timer />
           </div>
           <div className="col-lg-6 mb-3">
-            <AdCard />
+            <AdCard timer />
           </div>
           <div className="col-lg-6 mb-3">
-            <AdCard />
+            <AdCard timer />
           </div>
         </div>
       </div>

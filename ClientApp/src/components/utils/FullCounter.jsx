@@ -6,7 +6,7 @@ const FullCounter = ({ time }) => {
   const times = ["days", "hours", "minutes", "seconds"];
   useEffect(() => {
     const updateTime = () => {
-      const timer = new Date(time).getTime();
+      const timer = new Date(time || Date.now()).getTime();
       const now = Date.now();
       const remainingTime = timer - now;
       const prevSeconds = Math.floor(remainingTime / 1000);
@@ -20,7 +20,7 @@ const FullCounter = ({ time }) => {
     };
     const myInterval = setInterval(updateTime, 1000);
     return () => clearInterval(myInterval);
-  }, []);
+  }, [time]);
   return (
     <div className="counter">
       <span className="counter-icon">
@@ -38,7 +38,13 @@ const FullCounter = ({ time }) => {
       {times.map((el) => (
         <Counter
           time={el}
-          timeLog={timeLeft[el] > 9 ? timeLeft[el] : "0" + timeLeft[el]}
+          timeLog={
+            timeLeft[el] > 9
+              ? timeLeft[el]
+              : timeLeft[el]
+              ? "0" + timeLeft[el]
+              : "00"
+          }
         />
       ))}
     </div>

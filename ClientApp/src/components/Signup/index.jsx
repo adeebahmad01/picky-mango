@@ -1,20 +1,14 @@
 import React from "react";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogActions from "@material-ui/core/DialogActions";
 import Dialog from "@material-ui/core/Dialog";
-import { Link } from "react-router-dom";
 import CustomInput from "../utils/CustomInput";
-import {
-  Button,
-  Checkbox,
-  FormControlLabel,
-  Typography,
-} from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import LoginButtons from "../utils/LoginButtons";
 import usePopup from "../../hooks/usePopup";
 import { Autocomplete } from "@material-ui/lab";
 import { location } from "../utils/Searchbar";
+import { useLanguage } from "../../hooks/useLanguage";
 
 const SignUp = () => {
   const {
@@ -22,15 +16,17 @@ const SignUp = () => {
     signup: [open, setOpen],
   } = usePopup();
   const onClose = () => setOpen(false);
+  const { language } = useLanguage();
   return (
     <div>
       <Dialog
         PaperProps={{ style: { maxWidth: 400 } }}
         maxWidth="xs"
+        className={language.direction}
         onClose={onClose}
         open={open}
       >
-        <DialogContent dividers>
+        <DialogContent className="custom_scrollbar" dividers>
           <Typography className="text-center fw-bold mt-3 mb-4" variant="h4">
             Sign Up to <span className="text_sec">Picky</span>{" "}
             <span className="text_colored">Mango</span>
