@@ -16,7 +16,8 @@ const FullCounter = ({ time }) => {
       const minutes = prevMinutes % 60;
       const days = Math.floor(prevHours / 24);
       const hours = prevHours % 24;
-      setTimeLeft({ seconds, minutes, hours, days });
+      if (days >= 0 && hours >= 0 && minutes >= 0 && seconds >= 0)
+        setTimeLeft({ seconds, minutes, hours, days });
     };
     const myInterval = setInterval(updateTime, 1000);
     return () => clearInterval(myInterval);

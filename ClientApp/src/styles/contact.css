@@ -263,7 +263,7 @@
 .social_card_icon {
   transition: transform 0.2s linear 0s, border-radius 0.2s linear 0.2s;
 }
-.social_card_icon i {
+.social_card_icon svg {
   transition: transform 0.2s linear 0s;
 }
 .social_card_icon:hover {

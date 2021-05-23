@@ -7,7 +7,6 @@ import CustomInput from "../utils/CustomInput";
 import { categories, location } from "../utils/Searchbar";
 const PlaceAds = () => {
   const [images, setImages] = useState([{}]);
-  const [value, setValue] = useState([null, null]);
   return (
     <div>
       <div className="py-5">

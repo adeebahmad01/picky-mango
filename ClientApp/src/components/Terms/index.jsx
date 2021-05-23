@@ -3,7 +3,8 @@ import React from "react";
 
 export const H2 = ({ children, className, variant, ...props }) => (
   <Typography
-    className={`mb-4 colored_heading${className ? ` ${className}` : ""}`}
+    style={{ marginBottom: `1.5rem` }}
+    className={`colored_heading${className ? ` ${className}` : ""}`}
     variant={variant || "h2"}
     {...props}
   >

@@ -46,26 +46,26 @@ code {
   border-bottom: none;
 }
 
-.hero .swiper-button-next,
-.hero .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   display: inline-block;
   position: absolute;
-  top: auto;
-  left: auto;
-  right: auto;
-  bottom: 0rem;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: 0rem !important;
   margin: 0;
   background: 0 0;
   --swiper-navigation-size: 1rem;
-  color: #fff;
+  color: #fff !important;
   height: auto;
   background-image: linear-gradient(
     to left bottom,
     var(--color-primary),
     var(--color-primary-dark)
   );
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -73,12 +73,12 @@ code {
   border: 1px solid var(--color-primary);
 }
 
-.hero .swiper-button-prev {
-  right: 51%;
+.swiper-button-prev {
+  right: 51% !important;
 }
 
-.hero .swiper-button-next {
-  left: 51%;
+.swiper-button-next {
+  left: 51% !important;
 }
 
 header a {

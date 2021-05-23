@@ -1,6 +1,5 @@
 import { Paper, Typography } from "@material-ui/core";
 import React from "react";
-import Marquee from "react-fast-marquee";
 import { useLanguage } from "../../hooks/useLanguage";
 import Logo from "../utils/Logo";
 const Floating = () => {

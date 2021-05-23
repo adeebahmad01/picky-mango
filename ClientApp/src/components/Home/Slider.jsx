@@ -7,11 +7,11 @@ import SwiperCore, {
   Autoplay,
 } from "swiper";
 import "swiper/swiper-bundle.min.css";
-import { Button, Paper } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import { useLanguage } from "../../hooks/useLanguage";
-import Counter from "../utils/Counter";
 import FullCounter from "../utils/FullCounter";
 import { Fade } from "react-reveal";
+import { Link } from "react-router-dom";
 SwiperCore.use([Pagination, EffectCoverflow, Navigation, Autoplay]);
 const Slider = () => {
   const { language } = useLanguage();
@@ -79,7 +79,9 @@ const Slider = () => {
                   <Button
                     variant="contained"
                     color="primary"
-                    className="rounded-pill mt-4"
+                    component={Link}
+                    to="/auction-details/nano"
+                    className="rounded-pill text-white mt-4"
                   >
                     {component.button}
                   </Button>

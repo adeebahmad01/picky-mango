@@ -97,7 +97,7 @@ const Header = () => {
                     exact
                     activeClassName="active"
                     className="nav-link py-2 d-inline-block"
-                    to="/auctions"
+                    to="/view_ads_auctions"
                   >
                     {data.view_acutions}
                   </NavLink>
