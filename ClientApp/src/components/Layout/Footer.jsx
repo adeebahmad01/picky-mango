@@ -101,7 +101,6 @@ const Footer = () => {
                   <div>
                     <Link
                       to="/privacy"
-                      href="/"
                       className="font-weight-bold footer_link header_link active d-inline-block"
                       style={{ fontSize: "0.9rem" }}
                     >
