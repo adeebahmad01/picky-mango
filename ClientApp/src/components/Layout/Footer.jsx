@@ -2,9 +2,10 @@ import { Paper } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { Fade, Roll } from "react-reveal";
 import Tada from "react-reveal/Tada";
-import logo from "../../images/logo.png";
 import { useLanguage } from "../../hooks/useLanguage";
 import Logo from "../utils/Logo";
+import { H2 } from "../Terms";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [scroll, setScroll] = useState(false);
@@ -39,7 +40,7 @@ const Footer = () => {
                 className="text-dark-50 font-weight-bold"
                 style={{ fontSize: "0.7rem" }}
               >
-                © 2020 ECONOMICA Inc. <br /> All Rights Reserved
+                © 2020 Picky Mango Inc. <br /> All Rights Reserved
               </p>
             </Fade>
           </div>
@@ -59,9 +60,9 @@ const Footer = () => {
               </div>
               <div className="w-100 my-4" />
               <div className="col-lg-4 col-6 my-4">
-                <h6 className="text-dark-50 font-weight-bold">
+                <H2 variant="h6" className="mb-2 font-weight-bold">
                   Start a Conversation
-                </h6>
+                </H2>
                 <Tada>
                   <div>
                     <a
@@ -84,27 +85,38 @@ const Footer = () => {
                 </Tada>
               </div>
               <div className="col-lg-4 col-6 my-4">
-                <h6 className="text-dark-50 font-weight-bold">
-                  Start a Conversation
-                </h6>
+                <H2 variant="h6" className="mb-2 font-weight-bold">
+                  Picky Mango
+                </H2>
                 <Tada>
                   <div>
-                    <a
-                      href="/"
+                    <Link
+                      to="/terms"
                       className="font-weight-bold footer_link header_link active d-inline-block"
                       style={{ fontSize: "0.9rem" }}
                     >
-                      Portfolio
-                    </a>
+                      Terms & Conditions
+                    </Link>
                   </div>
                   <div>
-                    <a
+                    <Link
+                      to="/privacy"
                       href="/"
                       className="font-weight-bold footer_link header_link active d-inline-block"
                       style={{ fontSize: "0.9rem" }}
                     >
-                      2016 YIR
-                    </a>
+                      Privacy Policy
+                    </Link>
+                  </div>
+                  <div>
+                    <Link
+                      to="/faq"
+                      href="/"
+                      className="font-weight-bold footer_link header_link active d-inline-block"
+                      style={{ fontSize: "0.9rem" }}
+                    >
+                      FAQ
+                    </Link>
                   </div>
                 </Tada>
               </div>

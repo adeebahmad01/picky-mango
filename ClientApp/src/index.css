@@ -25,6 +25,10 @@
   font-family: "Poppins", "Droid Arabic Kufi", sans-serif;
 }
 
+.header-link {
+  padding: 0 0.75rem;
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -175,4 +179,20 @@ a:hover {
 
 .text_sec {
   color: var(--color-secondary);
+}
+
+.Cal__Today__chevron {
+  margin-left: 70px !important;
+}
+
+.Cal__Header__root.Cal__Header__landscape {
+  width: 300px;
+}
+
+.Cal__Header__range {
+  display: block !important;
+}
+
+.Cal__Header__range .Cal__Header__wrapper:last-child {
+  margin-left: 0 !important;
 }

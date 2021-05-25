@@ -99,7 +99,7 @@ const PlaceAds = () => {
               </H2>
               <div className="w-100" />
               {images.map((el, i) => (
-                <AddImages i={i} setImages={setImages} images={images} i={i} />
+                <AddImages i={i} setImages={setImages} images={images} />
               ))}
             </div>
           </Paper>

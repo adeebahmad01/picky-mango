@@ -54,7 +54,7 @@ const Login = () => {
               control={<Checkbox color="primary" name="remember_me" />}
               label="Remember Me"
             />
-            <a href="#">Forgot Password?</a>
+            <a href="#!">Forgot Password?</a>
           </div>
         </DialogContent>
 

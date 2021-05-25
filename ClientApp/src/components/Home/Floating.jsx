@@ -1,9 +1,7 @@
 import { Paper, Typography } from "@material-ui/core";
 import React from "react";
-import { useLanguage } from "../../hooks/useLanguage";
 import Logo from "../utils/Logo";
 const Floating = () => {
-  const { language } = useLanguage();
   return (
     <div>
       <div className="container">

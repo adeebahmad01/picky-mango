@@ -18,13 +18,13 @@ const CustomInput = (
   const change = (e) => (e.target.value ? setHasVal(true) : setHasVal(false));
   return (
     <div
-      ref={ref}
       className={`wrap-input100 validate-input ${wrapperClassName}`}
       data-validate={`Enter ${label}`}
       {...wrapperProps}
     >
       <Component
         {...props}
+        ref={ref}
         onChange={(e) => {
           change(e);
           onChange?.(e);

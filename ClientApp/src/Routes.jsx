@@ -1,13 +1,19 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Contact from "./components/Contact";
-import Home from "./components/Home";
-import PlaceAds from "./components/Place_Ads";
-import Privacy from "./components/Privacy";
-import Terms from "./components/Terms";
-import View_Ads_Auctions from "./components/View_Ads_Auctions";
-import Details from "./components/Details";
 import { AnimatePresence } from "framer-motion";
+const components = [
+  { name: "Privacy", path: "/privacy" },
+  { name: "Terms", path: "/terms" },
+  { name: "Home", path: "/" },
+  { name: "PlaceAds", path: "/place-ads" },
+  { name: "PlaceAuctions", path: "/place-auctions" },
+  { name: "Details", path: "/ad-details/:id" },
+  { name: "Details", path: "/auction-details/:id", props: { timer: true } },
+  { name: "Contact", path: "/contact" },
+  { name: "Faq", path: "/faq" },
+  { name: "View_Ads_Auctions", path: "/view_ads_auctions" },
+];
+
 const Routes = () => {
   return (
     <Route
@@ -17,22 +23,14 @@ const Routes = () => {
           <div style={{ position: "relative" }}>
             <AnimatePresence>
               <Switch location={location} key={location.pathname}>
-                <Route path="/" component={Home} exact />
-                <Route path="/contact" component={Contact} exact />
-                <Route
-                  path="/view_ads_auctions"
-                  component={View_Ads_Auctions}
-                  exact
-                />
-                <Route path="/terms" component={Terms} exact />
-                <Route path="/privacy" component={Privacy} exact />
-                <Route path="/place-ads" component={PlaceAds} exact />
-                <Route path="/ad-details/:id" exact>
-                  <Details />
-                </Route>
-                <Route path="/auction-details/:id" exact>
-                  <Details timer />
-                </Route>
+                {components.map((el) => {
+                  const Component = require(`./components/${el.name}`).default;
+                  return (
+                    <Route path={el.path} exact>
+                      <Component {...el.props} />
+                    </Route>
+                  );
+                })}
               </Switch>
             </AnimatePresence>
           </div>

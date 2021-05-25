@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Slide } from "react-reveal";
 import { motion } from "framer-motion";
 import {
   Avatar,
@@ -19,6 +18,7 @@ import { H2 } from "../Terms";
 import { WhatsApp } from "../../images/icons/SocialIcons";
 import FullCounter from "../utils/FullCounter";
 import { social } from "../utils/ShareDropdown";
+import { useLanguage } from "../../hooks/useLanguage";
 const useStyles = makeStyles((theme) => ({
   backdrop: {
     backgroundColor: theme.palette.action.disabled,
@@ -64,6 +64,7 @@ const Location = (props) => (
 
 const Details = ({ timer }) => {
   const classes = useStyles();
+  const { language } = useLanguage();
   useEffect(() => {
     document.body.style.overflow = `hidden`;
     return () => (document.body.style.overflow = `visible`);
@@ -96,16 +97,16 @@ const Details = ({ timer }) => {
       <motion.div
         animate={{ x: 0 }}
         exit={{
-          x: window.innerWidth,
+          x: (language.direction === "ltr" ? 1 : -1) * window.innerWidth,
         }}
         transition={{ delay: 100, x: { type: "tween", stiffness: 100 } }}
         initial={{
-          x: window.innerWidth,
+          x: (language.direction === "ltr" ? 1 : -1) * window.innerWidth,
         }}
         className={classes.front}
       >
         <Paper
-          style={{ top: 0 }}
+          style={{ top: 0, zIndex: 10 }}
           className="container-fluid rounded-0 position-sticky"
         >
           <div>
@@ -133,8 +134,10 @@ const Details = ({ timer }) => {
                       </Avatar>
                     </ListItemAvatar>
                     <ListItemText
+                      className={language.direction}
                       primary="Picky Mango"
                       secondary="Picky Mango Inc."
+                      style={{ textAlign: "initial" }}
                     />
                   </ListItem>
                   <Typography variant="h3" className="mb-2">
@@ -197,6 +200,7 @@ const Details = ({ timer }) => {
                   navigation={true}
                   grabCursor
                   loop
+                  className="unaffected"
                   style={{ overflowY: `visible`, paddingBottom: `3.6rem` }}
                 >
                   {images.map((el, i) => (

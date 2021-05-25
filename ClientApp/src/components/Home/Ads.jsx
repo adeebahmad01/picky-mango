@@ -1,6 +1,5 @@
-import { Button, Paper, Typography } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import React from "react";
-import { Bounce } from "react-reveal";
 import { useLanguage } from "../../hooks/useLanguage";
 import ArrowRight from "../../images/icons/ArrowIcon";
 import AdCard from "../utils/AdCard";

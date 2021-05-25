@@ -6,8 +6,6 @@
   );
 }
 .clipped {
-  -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
-  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -274,4 +272,14 @@
 }
 .social_card_icon:hover i {
   transform: rotate(90deg);
+}
+
+.ltr .clipped {
+  -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+}
+
+.rtl .clipped {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 20% 100%);
 }

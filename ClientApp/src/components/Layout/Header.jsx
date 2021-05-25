@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { ReactComponent as SearchIcon } from "../../images/icons/search-box.svg";
 import { ReactComponent as HamburgerIcon } from "../../images/icons/hamburger.svg";
-import { ReactComponent as LoginIcon } from "../../images/icons/login.svg";
 import logo from "../../images/logo.png";
 import "./header.css";
 import { useLanguage } from "../../hooks/useLanguage";
 import Searchbar from "../utils/Searchbar";
-import { Button, IconButton } from "@material-ui/core";
+import { Button, Collapse, IconButton } from "@material-ui/core";
 import LanguageSwitch from "../utils/LanguageSwitch";
 import usePopup from "../../hooks/usePopup";
 
@@ -16,15 +14,19 @@ const Header = () => {
     login: [, setLoginOpen],
     signup: [, setSignupOpen],
   } = usePopup();
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (window.innerWidth > 992) setOpen(true);
+  }, []);
   const { language } = useLanguage();
   const data = language.data.header.links;
   return (
     <>
       <header id="header" className="header" data-class="sticky-top">
-        <div className="border-bottom">
+        <div className="border-bottom mb-2">
           <div className="container">
             <div className="row">
-              <div className="col-lg-6">
+              <div className="col-6">
                 <span className="border border-top-0 border-bottom-0 d-inline-block">
                   <Button
                     component={Link}
@@ -44,11 +46,8 @@ const Header = () => {
                     SignUp
                   </Button>
                 </span>
-                <span className="mx-3 d-inline-block">
-                  <Link to="/privacy">Policy</Link>
-                </span>
               </div>
-              <div className="col-lg-6 pt-2 d-flex justify-content-end">
+              <div className="col-6 pt-2 d-flex justify-content-end">
                 <LanguageSwitch /> &nbsp;
                 <span> {language.name} </span>
               </div>
@@ -66,73 +65,84 @@ const Header = () => {
                   src={logo}
                 />
               </Link>
-              <button
+              <IconButton
                 className="navbar-toggler border-0 shadow-none header-burgerbtn"
                 type="button"
+                onClick={() => setOpen(!open)}
               >
                 <HamburgerIcon fill="var(--color-primary)" width={30} />
-              </button>
-              <div className="collapse px-3 navbar-collapse">
+              </IconButton>
+              <div className="collapse navbar-collapse">
                 <Searchbar />
               </div>
             </nav>
           </div>
         </div>
-        <section className="conatiner pt-2">
+        <Collapse in={open} className="conatiner myc">
           <div className="row">
             <div className="col-12">
-              <ul className="navbar-nav d-flex justify-content-center w-100 flex-row mx-auto mt-2 mt-lg-0 header-menu">
-                <li className="nav-item header-link px-3">
+              <ul className="navbar-nav justify-content-center w-100 flex-lg-row mx-auto mt-2 mt-lg-0 header-menu">
+                <li className="nav-item header-link">
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link py-2 d-inline-block"
+                    className="nav-link py-2 d-inline-block w-100 text-center"
                     to="/"
                   >
                     {data.home}
                   </NavLink>
                 </li>
-                <li className="nav-item header-link px-3">
+                <li className="nav-item header-link">
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link py-2 d-inline-block"
+                    className="nav-link py-2 d-inline-block w-100 text-center"
                     to="/view_ads_auctions"
                   >
                     {data.view_acutions}
                   </NavLink>
                 </li>
-                <li className="nav-item header-link px-3">
+                <li className="nav-item header-link">
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link py-2 d-inline-block"
+                    className="nav-link py-2 d-inline-block w-100 text-center"
                     to="/contact"
                   >
                     {data.contact_us}
                   </NavLink>
                 </li>
-                <li className="nav-item header-link px-3">
+                <li className="nav-item header-link">
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link py-2 d-inline-block"
+                    className="nav-link py-2 d-inline-block w-100 text-center"
                     to="/terms"
                   >
                     {data.terms}
                   </NavLink>
                 </li>
-                <li className="nav-item py-2 header-link">
+                <li className="nav-item header-link">
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link"
+                    className="nav-link py-2 d-inline-block w-100 text-center"
                     to="/policy"
                   >
-                    {data.policy}
+                    {data.poilcy}
                   </NavLink>
                 </li>
-                <li className="nav-item px-2 header-link">
+                <li className="nav-item header-link">
+                  <NavLink
+                    exact
+                    activeClassName="active"
+                    className="nav-link py-2 d-inline-block w-100 text-center"
+                    to="/faq"
+                  >
+                    FAQ
+                  </NavLink>
+                </li>
+                <li className="nav-item text-center py-1 px-2 header-link">
                   <Button
                     className="fw-light"
                     component={Link}
@@ -142,7 +152,7 @@ const Header = () => {
                     Place Ads
                   </Button>
                 </li>
-                <li className="nav-item px-2 header-link">
+                <li className="nav-item  text-center py-1 px-2 header-link">
                   <Button
                     component={Link}
                     className="fw-light"
@@ -155,7 +165,7 @@ const Header = () => {
               </ul>
             </div>
           </div>
-        </section>
+        </Collapse>
       </header>
     </>
   );
