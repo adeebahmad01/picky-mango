@@ -23,7 +23,7 @@ const Footer = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="row">
-              <div className="col-lg-3 px-0">
+              <div className="col-lg-3 col-6 px-0">
                 <Fade left>
                   <Logo className="w-100" />
                 </Fade>

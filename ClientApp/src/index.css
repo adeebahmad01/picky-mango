@@ -196,3 +196,37 @@ a:hover {
 .Cal__Header__range .Cal__Header__wrapper:last-child {
   margin-left: 0 !important;
 }
+
+@media (min-width: 992px) {
+  html {
+    font-size: 100%;
+  }
+  .hide_on_med {
+    display: block;
+  }
+  .hide_on_large {
+    display: none;
+  }
+}
+
+@media (min-width: 1400px) {
+  html {
+    font-size: 115%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  html {
+    font-size: 90%;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  html {
+    font-size: 85%;
+  }
+}
+@media (max-width: 576px) {
+  html {
+    font-size: 80%;
+  }
+}

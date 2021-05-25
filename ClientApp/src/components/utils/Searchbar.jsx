@@ -265,7 +265,7 @@ const Searchbar = () => {
         <Button
           component={Link}
           to={{
-            pathname: "/results",
+            pathname: "/view-ads-auctions",
           }}
           variant="contained"
           color="primary"

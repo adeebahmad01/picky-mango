@@ -45,7 +45,6 @@ const login_signup_classes = makeStyles((theme) => ({
   },
   facebook: {
     backgroundColor: `#4267B2`,
-    marginRight: `0.5rem`,
     color: `#fff`,
     "&:hover": {
       backgroundColor: `#3b5999`,
@@ -67,7 +66,7 @@ const LoginButtons = ({ page }) => {
       <Button
         variant="contained"
         color="primary"
-        className={`${classes.button} my-2 ${classes.facebook}`}
+        className={`${classes.button} my-2 unaffected ${classes.facebook}`}
         startIcon={<Facebook width={20} />}
         fullWidth
         size="large"
@@ -78,7 +77,7 @@ const LoginButtons = ({ page }) => {
         variant="contained"
         fullWidth
         size="large"
-        className={`${classes.button} my-2`}
+        className={`${classes.button} unaffected my-2`}
         startIcon={<GoogleIcon />}
       >
         {page} with Google

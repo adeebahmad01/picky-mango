@@ -26,7 +26,7 @@ const Header = () => {
         <div className="border-bottom mb-2">
           <div className="container">
             <div className="row">
-              <div className="col-6">
+              <div className="col-8">
                 <span className="border border-top-0 border-bottom-0 d-inline-block">
                   <Button
                     component={Link}
@@ -47,7 +47,7 @@ const Header = () => {
                   </Button>
                 </span>
               </div>
-              <div className="col-6 pt-2 d-flex justify-content-end">
+              <div className="col-4 pt-2 d-flex justify-content-end">
                 <LanguageSwitch /> &nbsp;
                 <span> {language.name} </span>
               </div>
@@ -57,9 +57,9 @@ const Header = () => {
         <div className="border-bottom">
           <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light header-wrapper">
-              <Link className="navbar-brand header-logo" to="/">
+              <Link className="navbar-brand header-logo mx-sm-3" to="/">
                 <img
-                  width={250}
+                  width={230}
                   alt="picky-mango"
                   className="d-inline-block align-top"
                   src={logo}
@@ -78,7 +78,7 @@ const Header = () => {
             </nav>
           </div>
         </div>
-        <Collapse in={open} className="conatiner myc">
+        <Collapse component="section" in={open} className="conatiner myc">
           <div className="row">
             <div className="col-12">
               <ul className="navbar-nav justify-content-center w-100 flex-lg-row mx-auto mt-2 mt-lg-0 header-menu">
@@ -97,7 +97,7 @@ const Header = () => {
                     exact
                     activeClassName="active"
                     className="nav-link py-2 d-inline-block w-100 text-center"
-                    to="/view_ads_auctions"
+                    to="/view-ads-auctions"
                   >
                     {data.view_acutions}
                   </NavLink>

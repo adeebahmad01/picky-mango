@@ -1,5 +1,6 @@
 import { Button, Typography } from "@material-ui/core";
 import React from "react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "../../hooks/useLanguage";
 import ArrowRight from "../../images/icons/ArrowIcon";
 import AdCard from "../utils/AdCard";
@@ -10,11 +11,13 @@ const Auctions = () => {
     <div>
       <div className="container">
         <div className="d-flex justify-content-between container">
-          <Typography variant="h2" className="my-4">
+          <Typography variant="h3" className="my-4">
             Latest Auctions
           </Typography>
           <div className="d-flex justify-content-center align-items-center">
             <Button
+              component={Link}
+              to="/view-ads-auctions"
               {...{
                 [language.direction === "ltr" ? "endIcon" : "startIcon"]: (
                   <ArrowRight

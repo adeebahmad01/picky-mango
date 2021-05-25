@@ -175,7 +175,7 @@ const Details = ({ timer }) => {
                   <H2 variant="h6" className="my-2">
                     Share
                   </H2>
-                  <div className="">
+                  <div className=" mb-3">
                     {social.map((el) => (
                       <IconButton
                         component="a"

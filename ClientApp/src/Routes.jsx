@@ -11,7 +11,7 @@ const components = [
   { name: "Details", path: "/auction-details/:id", props: { timer: true } },
   { name: "Contact", path: "/contact" },
   { name: "Faq", path: "/faq" },
-  { name: "View_Ads_Auctions", path: "/view_ads_auctions" },
+  { name: "View_Ads_Auctions", path: "/view-ads-auctions" },
 ];
 
 const Routes = () => {

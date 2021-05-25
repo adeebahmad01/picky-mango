@@ -7,11 +7,6 @@
   --color-secondary-dark: #668a30;
 }
 
-.header-logo {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
 .unaffected {
   direction: ltr !important;
 }
