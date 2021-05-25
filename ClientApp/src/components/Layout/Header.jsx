@@ -127,7 +127,7 @@ const Header = () => {
                     exact
                     activeClassName="active"
                     className="nav-link py-2 d-inline-block w-100 text-center"
-                    to="/policy"
+                    to="/privacy"
                   >
                     {data.poilcy}
                   </NavLink>
