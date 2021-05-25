@@ -81,7 +81,7 @@ const Header = () => {
         <Collapse component="section" in={open} className="conatiner myc">
           <div className="row">
             <div className="col-12">
-              <ul className="navbar-nav justify-content-center w-100 flex-lg-row mx-auto mt-2 mt-lg-0 header-menu">
+              <ul className="navbar-nav list-unstyled justify-content-center w-100 flex-lg-row mx-auto mt-2 mt-lg-0 header-menu">
                 <li className="nav-item header-link">
                   <NavLink
                     exact
