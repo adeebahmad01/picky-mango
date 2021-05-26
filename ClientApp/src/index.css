@@ -181,12 +181,14 @@ a:hover {
   color: var(--color-secondary);
 }
 
-.Cal__Today__chevron {
-  margin-left: 70px !important;
+.Cal__Header__root.Cal__Header__landscape {
+  width: 17rem;
 }
 
-.Cal__Header__root.Cal__Header__landscape {
-  width: 300px;
+.Cal__Header__dateWrapper.Cal__Header__day {
+  height: 2rem !important;
+  font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
+  line-height: 2rem !important;
 }
 
 .Cal__Header__range {

@@ -1,11 +1,13 @@
 import { Button, ButtonGroup, makeStyles } from "@material-ui/core";
 import React from "react";
+import { useLanguage } from "../../hooks/useLanguage";
 import CustomInput from "./CustomInput";
 
 const useStyles = makeStyles((theme) => ({
   errorButton: {
     backgroundColor: theme.palette.error.main,
     color: `#fff`,
+    direction: `ltr !important`,
     "&:hover": {
       backgroundColor: theme.palette.error.dark,
     },
@@ -22,7 +24,9 @@ const Delete = (props) => (
 
 const AddImages = ({ i = 0, setImages, images }) => {
   const classes = useStyles();
-
+  const { language } = useLanguage();
+  const iconPosition = language.direction === "ltr" ? "startIcon" : "endIcon";
+  console.log(iconPosition);
   return (
     <>
       <div className="row">
@@ -45,7 +49,7 @@ const AddImages = ({ i = 0, setImages, images }) => {
           />
         </div>
         <div className="col-lg-3 d-flex align-items-end pb-3">
-          <ButtonGroup>
+          <ButtonGroup className="unaffected">
             <Button
               variant="contained"
               onClick={() => setImages([...images, {}])}
