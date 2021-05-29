@@ -7,7 +7,7 @@ import SwiperCore, {
   Autoplay,
 } from "swiper";
 import "swiper/swiper-bundle.min.css";
-import { Button } from "@material-ui/core";
+import { Button, CardActionArea } from "@material-ui/core";
 import { useLanguage } from "../../hooks/useLanguage";
 import FullCounter from "../utils/FullCounter";
 import { Fade } from "react-reveal";
@@ -33,63 +33,63 @@ const Slider = () => {
   const showSlides = () =>
     images.map((el, i) => (
       <SwiperSlide className={`px-2 pb-3 ${language.direction}`} key={i}>
-        <div className="container-fluid round">
-          <div className="row flex-row-reverse">
-            <div className="col-12 col-sm-12 col-md-7 position-relative">
-              <div className="homeTanent-additionWrapper">
-                <div className="hero-additionBlock tanent-icon">
-                  <img
-                    alt="branding"
-                    width="36px"
-                    src="https://emazad.sa/assets/branding/images/icons/Thiqah.svg"
-                  />
-                  <div className="tanent-name">
-                    <p className="on-top">خاصة</p>
+        <CardActionArea component={Link} to="/auction-details/nano">
+          <div className="container-fluid round">
+            <div className="row flex-row-reverse">
+              <div className="col-12 col-sm-12 col-md-7 position-relative">
+                <div className="homeTanent-additionWrapper">
+                  <div className="hero-additionBlock tanent-icon">
+                    <img
+                      alt="branding"
+                      width="36px"
+                      src="https://emazad.sa/assets/branding/images/icons/Thiqah.svg"
+                    />
+                    <div className="tanent-name">
+                      <p className="on-top">خاصة</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="hero-wrapper">
+                  <div className="hero-cover">
+                    <img alt="hero-cover" src={el} />
+                  </div>
+                  <div className="hero-additionWrapper">
+                    <div className="hero-additionBlock">
+                      <span className="text mb-3">{component.share_token}</span>
+                      <span className="value">210,000</span>
+                      <span className="symbol">{component.currency}</span>
+                    </div>
+                    <div className="hero-additionBlock">
+                      <span className="text ">{component.from}</span>
+                      <span className="mb-md-1 value">26/4/2021</span>
+                      <span className="text">{component.to}</span>
+                      <span className="value">10/6/2021</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="hero-wrapper">
-                <div className="hero-cover">
-                  <img alt="hero-cover" src={el} />
-                </div>
-                <div className="hero-additionWrapper">
-                  <div className="hero-additionBlock">
-                    <span className="text mb-3">{component.share_token}</span>
-                    <span className="value">210,000</span>
-                    <span className="symbol">{component.currency}</span>
+              <div className={`col-12 col-sm-12 col-md-5`}>
+                <Fade when={i === index} cascade top>
+                  <div className="hero-body">
+                    <h5 className="hero-info">{component.info}</h5>
+                    <h3 className="hero-title">{component.title}</h3>
+                    <p className="hero-desc text-truncate">
+                      {component.category}
+                    </p>
+                    <FullCounter time="07 july 2021" />
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className="rounded-pill text-white mt-4"
+                    >
+                      {component.button}
+                    </Button>
                   </div>
-                  <div className="hero-additionBlock">
-                    <span className="text ">{component.from}</span>
-                    <span className="mb-md-1 value">26/4/2021</span>
-                    <span className="text">{component.to}</span>
-                    <span className="value">10/6/2021</span>
-                  </div>
-                </div>
+                </Fade>
               </div>
-            </div>
-            <div className={`col-12 col-sm-12 col-md-5`}>
-              <Fade when={i === index} cascade top>
-                <div className="hero-body">
-                  <h5 className="hero-info">{component.info}</h5>
-                  <h3 className="hero-title">{component.title}</h3>
-                  <p className="hero-desc text-truncate">
-                    {component.category}
-                  </p>
-                  <FullCounter time="07 july 2021" />
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    component={Link}
-                    to="/auction-details/nano"
-                    className="rounded-pill text-white mt-4"
-                  >
-                    {component.button}
-                  </Button>
-                </div>
-              </Fade>
             </div>
           </div>
-        </div>
+        </CardActionArea>
       </SwiperSlide>
     ));
   return (

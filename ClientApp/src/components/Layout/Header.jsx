@@ -86,7 +86,7 @@ const Header = () => {
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link py-2 d-inline-block w-100 text-center"
+                    className="nav-link nav_link py-2 d-inline-block w-100 text-center"
                     to="/"
                   >
                     {data.home}
@@ -96,7 +96,7 @@ const Header = () => {
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link py-2 d-inline-block w-100 text-center"
+                    className="nav-link nav_link py-2 d-inline-block w-100 text-center"
                     to="/view-ads-auctions"
                   >
                     {data.view_acutions}
@@ -106,7 +106,7 @@ const Header = () => {
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link py-2 d-inline-block w-100 text-center"
+                    className="nav-link nav_link py-2 d-inline-block w-100 text-center"
                     to="/contact"
                   >
                     {data.contact_us}
@@ -116,7 +116,7 @@ const Header = () => {
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link py-2 d-inline-block w-100 text-center"
+                    className="nav-link nav_link py-2 d-inline-block w-100 text-center"
                     to="/terms"
                   >
                     {data.terms}
@@ -126,7 +126,7 @@ const Header = () => {
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link py-2 d-inline-block w-100 text-center"
+                    className="nav-link nav_link py-2 d-inline-block w-100 text-center"
                     to="/privacy"
                   >
                     {data.poilcy}
@@ -136,7 +136,7 @@ const Header = () => {
                   <NavLink
                     exact
                     activeClassName="active"
-                    className="nav-link py-2 d-inline-block w-100 text-center"
+                    className="nav-link nav_link py-2 d-inline-block w-100 text-center"
                     to="/faq"
                   >
                     FAQ

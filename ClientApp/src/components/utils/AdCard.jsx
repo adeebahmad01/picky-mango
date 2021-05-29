@@ -9,9 +9,10 @@ const AdCard = ({ timer = false, when = undefined }) => {
   const [open, setOpen] = useState(false);
   return (
     <Bounce when={when} top>
-      <Paper className="profile box position-relative p-3 d-inline-block profile-long">
+      <Paper className="profile p-0 box position-relative d-inline-block profile-long">
         <CardActionArea
           component={Link}
+          className="p-3"
           to={timer ? "/auction-details/nano" : "/ad-details/abc"}
         >
           <div className="row">
@@ -57,20 +58,30 @@ const AdCard = ({ timer = false, when = undefined }) => {
               </div>
             </div>
           </div>
+
+          <div className="d-flex justify-content-between flex-column flex-sm-row align-items-center">
+            <div>{timer && <FullCounter time="23:59:59 31 dec 2021" />}</div>
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                setOpen(e.currentTarget);
+              }}
+              color="primary"
+            >
+              Share
+            </Button>
+            <ShareDropdown
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+              handleClose={() => setOpen(null)}
+              open={open}
+              url={`${window.location.host}${
+                timer ? "/auction-details/nano" : "/ad-details/abc"
+              }`}
+            />
+          </div>
         </CardActionArea>
-        <div className="d-flex justify-content-between flex-column flex-sm-row align-items-center">
-          <div>{timer && <FullCounter time="23:59:59 31 dec 2021" />}</div>
-          <Button onClick={(e) => setOpen(e.currentTarget)} color="primary">
-            Share
-          </Button>
-          <ShareDropdown
-            handleClose={() => setOpen(null)}
-            open={open}
-            url={`${window.location.host}${
-              timer ? "/auction-details/nano" : "/ad-details/abc"
-            }`}
-          />
-        </div>
       </Paper>
     </Bounce>
   );

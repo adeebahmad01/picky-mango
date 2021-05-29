@@ -32,7 +32,7 @@ const CustomMenuItem = withStyles((theme) => ({
     },
   },
 }))(MenuItem);
-const ShareDropdown = ({ url, open, handleClose }) => {
+const ShareDropdown = ({ url, open, handleClose, onClick }) => {
   const { setSuccess } = usePopup();
   const theme = useTheme();
   async function copyToClipboard(text = "") {
@@ -43,6 +43,7 @@ const ShareDropdown = ({ url, open, handleClose }) => {
     <>
       <Menu
         component="nav"
+        onClick={onClick}
         onClose={handleClose}
         anchorEl={open}
         keepMounted

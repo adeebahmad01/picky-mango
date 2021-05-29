@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
 import {
   Avatar,
+  Box,
+  Divider,
   IconButton,
+  LinearProgress,
   ListItem,
   ListItemAvatar,
   ListItemText,
@@ -10,8 +12,6 @@ import {
   Paper,
   Typography,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
-import ArrowRight from "../../images/icons/ArrowIcon";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Logo from "../utils/Logo";
 import { H2 } from "../Terms";
@@ -20,6 +20,22 @@ import FullCounter from "../utils/FullCounter";
 import { social } from "../utils/ShareDropdown";
 import { useLanguage } from "../../hooks/useLanguage";
 import DetailsWrapper from "./DetailsWrapper";
+
+function LinearProgressWithLabel(props) {
+  return (
+    <Box display="flex" flexDirection="column">
+      <Box minWidth={35}>
+        <Typography variant="body1" color="textPrimary">{`${props.value.toFixed(
+          2
+        )}%`}</Typography>
+      </Box>
+      <Box width={`100%`} maxWidth={250}>
+        <LinearProgress variant="determinate" {...props} />
+      </Box>
+    </Box>
+  );
+}
+
 const useStyles = makeStyles((theme) => ({
   bg: {
     backgroundColor: theme.palette.background.default,
@@ -66,94 +82,110 @@ const Details = ({ timer }) => {
   return (
     <DetailsWrapper>
       <div className={classes.bg}>
-        <div className="p-4">
-          <div className="row">
-            <div className="col-lg-7">
-              <div className="pt-3">
-                <ListItem className="px-0" component="div">
-                  <ListItemAvatar>
-                    <Avatar variant="circular" className="bg-white">
-                      <Logo width={35} />
-                    </Avatar>
-                  </ListItemAvatar>
-                  <ListItemText
-                    className={language.direction}
-                    primary="Picky Mango"
-                    secondary="Picky Mango Inc."
-                    style={{ textAlign: "initial" }}
-                  />
-                </ListItem>
-                <Typography variant="h3" className="mb-2">
-                  New generation Apple headphones
-                </Typography>
-                {timer && <FullCounter time="07 07 2021" />}
-                <Typography variant="body1">
-                  <Location width={16} className="me-2 d-inline-block" />
-                  <b>Country</b>: Jordan
-                </Typography>
-                <Typography variant="body1">
-                  <b>Price</b>: 240 SAR
-                </Typography>
-                <Typography variant="body1">
-                  <b>Category</b>: Mobile phones and their accessories
-                </Typography>
-                <H2 variant="h6" className="my-2">
-                  Contact The Seller At
-                </H2>
-                <div>
-                  <a
-                    className="text-decoration-none"
-                    href="https://wa.me/+1234567890"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <IconButton
-                      style={{ backgroundColor: `#60ba4f`, color: `#fff` }}
-                    >
-                      <WhatsApp width={20} fill="currentColor" />
-                    </IconButton>
-                    <span className="h5 mx-3">+1234567890</span>
-                  </a>
+        <div className="p-2">
+          <Paper>
+            <div className="p-4">
+              <div className="row">
+                <div className="col-lg-2 col-md-3 col-4">
+                  <div className="inner_img shadow-sm">
+                    <Logo
+                      className="position-absolute img"
+                      style={{ maxWidth: `100%`, maxHeight: `100%` }}
+                    />
+                  </div>
                 </div>
-                <H2 variant="h6" className="my-2">
-                  Share
-                </H2>
-                <div className=" mb-3">
-                  {social.map((el) => (
-                    <IconButton
-                      component="a"
-                      href={el.url(window.location.toString())}
-                      className="me-2"
-                      title={el.name}
-                      target="_blank"
-                      rel="noreferrer"
-                      style={{ backgroundColor: el.color, color: `#fff` }}
-                    >
-                      <el.Icon fill="currentColor" width={20} />
-                    </IconButton>
-                  ))}
+                <div className="col-lg-10 col-md-9 col-8 py-2">
+                  <Typography variant="h3" className="mb-3">
+                    Picky Mango
+                  </Typography>
+                  <Typography variant="h6" className="mb-2">
+                    <Location width={18} className="me-2 d-inline-block" />
+                    <b>Country</b>: Jordan
+                  </Typography>
+                  <LinearProgressWithLabel value={45} />
+                  <Typography variant="h6">Job Success</Typography>
                 </div>
               </div>
             </div>
-            <div className="col-lg-5">
-              <Swiper
-                autoplay={{ disableOnInteraction: false, delay: 2500 }}
-                speed={500}
-                initialSlide={0}
-                navigation={true}
-                grabCursor
-                loop
-                className="unaffected"
-                style={{ overflowY: `visible`, paddingBottom: `3.6rem` }}
-              >
-                {images.map((el, i) => (
-                  <SwiperSlide>
-                    <img src={el} className="w-100" alt="skjw" />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+            <Divider />
+            <div className="px-4">
+              <div className="row">
+                <div
+                  className="col-lg-7"
+                  style={{ borderRight: `1px solid #eee` }}
+                >
+                  <div className="pt-5">
+                    <Typography variant="h3" className="mb-2">
+                      New generation Apple headphones
+                    </Typography>
+                    {timer && <FullCounter time="07 07 2021" />}
+                    <Typography variant="body1">
+                      <b>Price</b>: 240 SAR
+                    </Typography>
+                    <Typography variant="body1">
+                      <b>Category</b>: Mobile phones and their accessories
+                    </Typography>
+                    <H2 variant="h6" className="my-2">
+                      Contact The Seller At
+                    </H2>
+                    <div>
+                      <a
+                        className="text-decoration-none"
+                        href="https://wa.me/+1234567890"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <IconButton
+                          style={{ backgroundColor: `#60ba4f`, color: `#fff` }}
+                        >
+                          <WhatsApp width={20} fill="currentColor" />
+                        </IconButton>
+                        <span className="h5 mx-3">+1234567890</span>
+                      </a>
+                    </div>
+                    <H2 variant="h6" className="my-2">
+                      Share
+                    </H2>
+                    <div className=" mb-3">
+                      {social.map((el) => (
+                        <IconButton
+                          component="a"
+                          href={el.url(window.location.toString())}
+                          className="me-2"
+                          title={el.name}
+                          target="_blank"
+                          rel="noreferrer"
+                          style={{ backgroundColor: el.color, color: `#fff` }}
+                        >
+                          <el.Icon fill="currentColor" width={20} />
+                        </IconButton>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="col-lg-5">
+                  <div className="py-4">
+                    <Swiper
+                      autoplay={{ disableOnInteraction: false, delay: 2500 }}
+                      speed={500}
+                      initialSlide={0}
+                      navigation={true}
+                      grabCursor
+                      loop
+                      className="unaffected"
+                      style={{ overflowY: `visible`, paddingBottom: `3.6rem` }}
+                    >
+                      {images.map((el, i) => (
+                        <SwiperSlide>
+                          <img src={el} className="w-100" alt="skjw" />
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          </Paper>
         </div>
       </div>
     </DetailsWrapper>

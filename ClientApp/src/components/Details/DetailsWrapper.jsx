@@ -1,4 +1,4 @@
-import { makeStyles, Paper } from "@material-ui/core";
+import { IconButton, makeStyles, Paper } from "@material-ui/core";
 import { motion } from "framer-motion";
 import React from "react";
 import { useHistory } from "react-router-dom";
@@ -31,21 +31,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DetailsWrapper = ({ children }) => {
-  const { goBack } = useHistory();
+  const { push } = useHistory();
   const classes = useStyles();
   const { language } = useLanguage();
   return (
     <motion.div
       animate={{ opacity: 1 }}
-      exit={{
-        opacity: 0,
-      }}
-      initial={{
-        opacity: 0,
-      }}
+      exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
       className={classes.backdrop}
     >
-      <div onClick={goBack} className={classes.backdrop}></div>
+      <div onClick={() => push("/")} className={classes.backdrop}></div>
       <motion.div
         animate={{ x: 0 }}
         exit={{
@@ -62,15 +58,25 @@ const DetailsWrapper = ({ children }) => {
           className="container-fluid rounded-0 position-sticky"
         >
           <div>
-            <div onClick={goBack}>
-              <ArrowRight
-                style={{
-                  transform: `rotate(180deg)`,
-                }}
-                fill="currentColor"
-                width={26}
-                className="my-4 "
-              />
+            <div className="d-flex justify-content-between align-items-center">
+              <div>
+                <IconButton onClick={() => push("/")} className="my-2">
+                  <ArrowRight
+                    style={{
+                      transform: `rotate(180deg)`,
+                    }}
+                    fill="currentColor"
+                    width={20}
+                  />
+                </IconButton>
+              </div>
+              <a
+                href={window.location.toString()}
+                target="_blank"
+                className="nav_link text-decoration-none text-capitalize position-relative"
+              >
+                open in new window
+              </a>
             </div>
           </div>
         </Paper>

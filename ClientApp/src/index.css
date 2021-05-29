@@ -89,7 +89,7 @@ header a {
   color: #333;
   position: relative;
 }
-header section .nav-link::before {
+.nav_link::before {
   content: "";
   color: #333;
   height: 2px;
@@ -105,7 +105,7 @@ a {
   color: #333;
 }
 
-header section .nav-link:hover::before,
+.nav_link:hover::before,
 .active::before {
   width: 100% !important;
 }
@@ -231,4 +231,32 @@ a:hover {
   html {
     font-size: 80%;
   }
+}
+
+.inner_img {
+  position: relative;
+  padding-bottom: 100%;
+  border: 1px solid #eee;
+  border-radius: 50%;
+}
+.inner_img .img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.linear {
+  background-image: linear-gradient(
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }

@@ -9,7 +9,7 @@ const components = [
   { name: "PlaceAuctions", path: "/place-auctions" },
   { name: "Details/AdDetails", path: "/ad-details/:id" },
   {
-    name: "Details/AdDetails",
+    name: "Details/AuctionDetails",
     path: "/auction-details/:id",
     props: { timer: true },
   },
