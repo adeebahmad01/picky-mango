@@ -105,223 +105,235 @@ export const AuctionInner = () => {
     x -= x % 3;
     return Math.round((n * d) / p(10, x)) / d + " kMGTPE"[x / 3];
   }
-  return [1, 2, 3, 4, 5].map((el) => (
-    <div className={classes.bg}>
-      <div className="py-4 px-3">
-        <Paper>
-          <div className="p-4">
+  return (
+    <>
+      <Paper className="p-4">
+        <div className="row">
+          <div className="col-lg-6">
             <div className="row">
-              <div className="col-lg-6">
-                <div className="row">
-                  <div className="col-lg-4 col-md-3 col-4">
-                    <div className="inner_img shadow-sm">
-                      <Logo
-                        className="position-absolute img"
-                        style={{ maxWidth: `100%`, maxHeight: `100%` }}
-                      />
-                    </div>
-                  </div>
-                  <div className="col-lg-8 col-md-9 col-8 py-2">
-                    <Typography variant="h3" className="mb-3">
-                      Picky Mango
-                    </Typography>
-                    <Typography variant="h6" className="mb-2">
-                      <Location width={18} className="me-2 d-inline-block" />
-                      <b>Country</b>: Jordan
-                    </Typography>
-                    <LinearProgressWithLabel value={45} />
-                    <Typography variant="h6">Job Success</Typography>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6 px-0">
-                <div className="text-white round linear p-3">
-                  <Typography variant="h3" className="mb-2">
-                    Bid
-                  </Typography>
-                  <div className="row">
-                    <div className="col">
-                      <Typography variant="h6" className="mb-2">
-                        Min Value: {m(16000)}
-                      </Typography>
-                    </div>
-                    <div className="col">
-                      <Typography variant="h6" className="mb-2">
-                        Max Value: {m(90000)}
-                      </Typography>
-                    </div>
-                  </div>
-
-                  <TextField
-                    color="secondary"
-                    fullWidth
-                    readonly
-                    value={price.toLocaleString() + "S.A.R"}
-                    className="bg-white unaffected app rounded mb-3"
-                    inputProps={{ className: `p-3 text-center` }}
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          <div>
-                            <IconButton
-                              onClick={() => setPrice((p) => p - 10000)}
-                              className="rounded-0"
-                            >
-                              <span
-                                className="d-flex justify-content-center align-items-center"
-                                style={{ width: 25, height: 25 }}
-                              >
-                                -
-                              </span>
-                            </IconButton>
-                          </div>
-                        </InputAdornment>
-                      ),
-                      endAdornment: (
-                        <InputAdornment position="end">
-                          <div>
-                            <IconButton
-                              onClick={() => setPrice((p) => p + 10000)}
-                              className="rounded-0"
-                            >
-                              <span
-                                className="d-flex justify-content-center align-items-center"
-                                style={{ width: 25, height: 25 }}
-                              >
-                                +
-                              </span>
-                            </IconButton>
-                          </div>
-                        </InputAdornment>
-                      ),
-                    }}
-                    type="text"
+              <div className="col-lg-3 col-md-3 col-4">
+                <div className="inner_img shadow-sm">
+                  <Logo
+                    className="position-absolute img"
+                    style={{ maxWidth: `100%`, maxHeight: `100%` }}
                   />
-                  <Button fullWidth color="default" variant="contained">
-                    Participate in the auction
-                  </Button>
                 </div>
+              </div>
+              <div className="col-lg-9 col-md-9 col-8 py-2">
+                <Typography variant="h4" className="mb-2">
+                  Picky Mango
+                </Typography>
+                <Typography variant="body1" className="mb-1">
+                  <Location width={13} className="me-2 d-inline-block" />
+                  <b>Country</b>: Jordan
+                </Typography>
+                <LinearProgressWithLabel value={45} />
+                <Typography variant="body2">Job Success</Typography>
+                <FullCounter time="07 07 2021" />
               </div>
             </div>
           </div>
-          <Divider />
-          <div className="">
-            <div className="row mx-0">
-              <div
-                className="col-lg-6"
-                style={{ borderRight: `1px solid #eee` }}
-              >
-                <div className="pt-5">
-                  <Typography variant="h3" className="mb-2">
-                    New generation Apple headphones
+          <div className="col-lg-6 px-0">
+            <div className="text-white round linear p-3">
+              <Typography variant="h3" className="mb-2">
+                Bid
+              </Typography>
+              <div className="row">
+                <div className="col">
+                  <Typography variant="h6" className="mb-2">
+                    Min Value: {m(16000)}
                   </Typography>
-                  <div className="py-4">
-                    <Swiper
-                      autoplay={{ disableOnInteraction: false, delay: 2500 }}
-                      speed={500}
-                      initialSlide={0}
-                      navigation={true}
-                      grabCursor
-                      loop
-                      className="unaffected"
-                      style={{
-                        overflowY: `visible`,
-                        paddingBottom: `3.6rem`,
-                      }}
-                    >
-                      {images.map((el, i) => (
-                        <SwiperSlide>
-                          <img src={el} className="w-100" alt="skjw" />
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
-                  </div>
-                  <FullCounter time="07 07 2021" />
-                  <Typography variant="body1">
-                    <b>Price</b>: 240 SAR
+                </div>
+                <div className="col">
+                  <Typography variant="h6" className="mb-2">
+                    Max Value: {m(90000)}
                   </Typography>
-                  <Typography variant="body1">
-                    <b>Category</b>: Mobile phones and their accessories
-                  </Typography>
-                  <H2 variant="h6" className="my-2">
-                    Contact The Seller At
-                  </H2>
-                  <div>
-                    <a
-                      className="text-decoration-none"
-                      href="https://wa.me/+1234567890"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <IconButton
-                        style={{ backgroundColor: `#60ba4f`, color: `#fff` }}
-                      >
-                        <WhatsApp width={20} fill="currentColor" />
-                      </IconButton>
-                      <span className="h5 mx-3">+1234567890</span>
-                    </a>
-                  </div>
-                  <H2 variant="h6" className="my-2">
-                    Share
-                  </H2>
-                  <div className=" mb-3">
-                    {social.map((el) => (
-                      <IconButton
-                        component="a"
-                        href={el.url(window.location.toString())}
-                        className="me-2"
-                        title={el.name}
-                        target="_blank"
-                        rel="noreferrer"
-                        style={{ backgroundColor: el.color, color: `#fff` }}
-                      >
-                        <el.Icon fill="currentColor" width={20} />
-                      </IconButton>
-                    ))}
-                  </div>
                 </div>
               </div>
-              <div className="col-lg-6">
-                <div className="row">
-                  <div className="p-3 linear">
-                    <List component="nav">
-                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el) => (
-                        <div className="bg-white round mb-2 p-3">
-                          <ListItem className="px-0" component="div">
-                            <ListItemAvatar>
-                              <Avatar
-                                className={`bg-white shadow-sm mx-2 ${classes.large}`}
-                              >
-                                <Logo
-                                  style={{
-                                    maxWidth: `100%`,
-                                    maxHeight: `100%`,
-                                  }}
+
+              <TextField
+                color="secondary"
+                fullWidth
+                readonly
+                value={price.toLocaleString() + "S.A.R"}
+                className="bg-white unaffected app rounded mb-3"
+                inputProps={{ className: `p-3 text-center` }}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <div>
+                        <IconButton
+                          onClick={() => setPrice((p) => p - 10000)}
+                          className="rounded-0"
+                        >
+                          <span
+                            className="d-flex justify-content-center align-items-center"
+                            style={{ width: 25, height: 25 }}
+                          >
+                            -
+                          </span>
+                        </IconButton>
+                      </div>
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <div>
+                        <IconButton
+                          onClick={() => setPrice((p) => p + 10000)}
+                          className="rounded-0"
+                        >
+                          <span
+                            className="d-flex justify-content-center align-items-center"
+                            style={{ width: 25, height: 25 }}
+                          >
+                            +
+                          </span>
+                        </IconButton>
+                      </div>
+                    </InputAdornment>
+                  ),
+                }}
+                type="text"
+              />
+              <Button fullWidth color="default" variant="contained">
+                Participate in the auction
+              </Button>
+            </div>
+          </div>
+        </div>
+      </Paper>
+      <Divider />
+      {[1, 2, 3, 4, 5].map((el) => (
+        <div className={classes.bg}>
+          <div className="py-4 px-3">
+            <div>
+              <Paper className="">
+                <div className="row mx-0">
+                  <div
+                    className="col-lg-6"
+                    style={{ borderRight: `1px solid #eee` }}
+                  >
+                    <div className="pt-5">
+                      <Typography variant="h3" className="mb-2">
+                        New generation Apple headphones
+                      </Typography>
+                      <div className="py-4">
+                        <Swiper
+                          autoplay={{
+                            disableOnInteraction: false,
+                            delay: 2500,
+                          }}
+                          speed={500}
+                          initialSlide={0}
+                          navigation={true}
+                          grabCursor
+                          loop
+                          className="unaffected"
+                          style={{
+                            overflowY: `visible`,
+                            paddingBottom: `3.6rem`,
+                          }}
+                        >
+                          {images.map((el, i) => (
+                            <SwiperSlide>
+                              <img src={el} className="w-100" alt="skjw" />
+                            </SwiperSlide>
+                          ))}
+                        </Swiper>
+                      </div>
+                      <Typography variant="body1">
+                        <b>Price</b>: 240 SAR
+                      </Typography>
+                      <Typography variant="body1">
+                        <b>Category</b>: Mobile phones and their accessories
+                      </Typography>
+                      <H2 variant="h6" className="my-2">
+                        Contact The Seller At
+                      </H2>
+                      <div>
+                        <a
+                          className="text-decoration-none"
+                          href="https://wa.me/+1234567890"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <IconButton
+                            style={{
+                              backgroundColor: `#60ba4f`,
+                              color: `#fff`,
+                            }}
+                          >
+                            <WhatsApp width={20} fill="currentColor" />
+                          </IconButton>
+                          <span className="h5 mx-3">+1234567890</span>
+                        </a>
+                      </div>
+                      <H2 variant="h6" className="my-2">
+                        Share
+                      </H2>
+                      <div className=" mb-3">
+                        {social.map((el) => (
+                          <IconButton
+                            component="a"
+                            href={el.url(window.location.toString())}
+                            className="me-2"
+                            title={el.name}
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{ backgroundColor: el.color, color: `#fff` }}
+                          >
+                            <el.Icon fill="currentColor" width={20} />
+                          </IconButton>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="row">
+                      <div className="p-3 linear">
+                        <List component="nav">
+                          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el) => (
+                            <div className="bg-white round mb-2 p-3">
+                              <ListItem className="px-0" component="div">
+                                <ListItemAvatar>
+                                  <Avatar
+                                    className={`bg-white shadow-sm mx-2 ${classes.large}`}
+                                  >
+                                    <Logo
+                                      style={{
+                                        maxWidth: `100%`,
+                                        maxHeight: `100%`,
+                                      }}
+                                    />
+                                  </Avatar>
+                                </ListItemAvatar>
+                                <ListItemText
+                                  className={language.direction}
+                                  primary="Picky Mango"
+                                  secondary={920 - (el - 1) * 64}
+                                  style={{ textAlign: "initial" }}
                                 />
-                              </Avatar>
-                            </ListItemAvatar>
-                            <ListItemText
-                              className={language.direction}
-                              primary="Picky Mango"
-                              secondary={920 - (el - 1) * 64}
-                              style={{ textAlign: "initial" }}
-                            />
-                            <ListItemSecondaryAction className={classes.sec}>
-                              {m(9200 - (el - 1) * 100)} S.A.R <GraphIcon />
-                            </ListItemSecondaryAction>
-                          </ListItem>
-                        </div>
-                      ))}
-                    </List>
+                                <ListItemSecondaryAction
+                                  className={classes.sec}
+                                >
+                                  {m(9200 - (el - 1) * 100)} S.A.R <GraphIcon />
+                                </ListItemSecondaryAction>
+                              </ListItem>
+                            </div>
+                          ))}
+                        </List>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Paper>
             </div>
           </div>
-        </Paper>
-      </div>
-    </div>
-  ));
+        </div>
+      ))}
+    </>
+  );
 };
 
 const AuctionDetails = () => {

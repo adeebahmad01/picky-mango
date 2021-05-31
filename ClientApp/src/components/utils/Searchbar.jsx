@@ -222,6 +222,7 @@ const Searchbar = () => {
           options={categories}
           onInputChange={(e, value) => setCategory(value)}
           getOptionLabel={(option) => option}
+          ListboxProps={{ style: { direction: language.direction } }}
           style={{ width: `100%` }}
           renderInput={(params) => {
             params.InputProps.className =
@@ -242,6 +243,7 @@ const Searchbar = () => {
         <Autocomplete
           id="location"
           options={location}
+          ListboxProps={{ style: { direction: language.direction } }}
           onInputChange={(e, value) => setLocation(value)}
           getOptionLabel={(option) => option}
           style={{ width: `100%` }}
