@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../hooks/useLanguage";
 import ArrowRight from "../../images/icons/ArrowIcon";
-import AdCard from "../utils/AdCard";
+import AuctionCard from "../utils/AuctionCard";
 
 const Auctions = () => {
   const { language } = useLanguage();
@@ -39,22 +39,22 @@ const Auctions = () => {
         </div>
         <div className="row">
           <div className="col-lg-6 mb-3">
-            <AdCard timer />
+            <AuctionCard />
           </div>
           <div className="col-lg-6 mb-3">
-            <AdCard timer />
+            <AuctionCard />
           </div>
           <div className="col-lg-6 mb-3">
-            <AdCard timer />
+            <AuctionCard />
           </div>
           <div className="col-lg-6 mb-3">
-            <AdCard timer />
+            <AuctionCard />
           </div>
           <div className="col-lg-6 mb-3">
-            <AdCard timer />
+            <AuctionCard />
           </div>
           <div className="col-lg-6 mb-3">
-            <AdCard timer />
+            <AuctionCard />
           </div>
         </div>
       </div>

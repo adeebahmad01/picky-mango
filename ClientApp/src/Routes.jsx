@@ -8,10 +8,12 @@ const components = [
   { name: "PlaceAds", path: "/place-ads" },
   { name: "PlaceAuctions", path: "/place-auctions" },
   { name: "Details/AdDetails", path: "/ad-details/:id" },
+  { name: "Details/AdDetails", path: "/ad-detail/:id", nested: "AdInner" },
+  { name: "Details/AuctionDetails", path: "/auction-details/:id" },
   {
     name: "Details/AuctionDetails",
-    path: "/auction-details/:id",
-    props: { timer: true },
+    path: "/auction-detail/:id",
+    nested: "AuctionInner",
   },
   { name: "Contact", path: "/contact" },
   { name: "Faq", path: "/faq" },
@@ -28,7 +30,9 @@ const Routes = () => {
             <AnimatePresence>
               <Switch location={location} key={location.pathname}>
                 {components.map((el) => {
-                  const Component = require(`./components/${el.name}`).default;
+                  const Component = require(`./components/${el.name}`)[
+                    el.nested || "default"
+                  ];
                   return (
                     <Route path={el.path} exact>
                       <Component {...el.props} />

@@ -2,14 +2,19 @@ import { Avatar, Button, CardActionArea, Paper } from "@material-ui/core";
 import React, { useState } from "react";
 import { Bounce } from "react-reveal";
 import { Link } from "react-router-dom";
+import FullCounter from "./FullCounter";
 import ShareDropdown from "./ShareDropdown";
 
-const AdCard = ({ when = undefined }) => {
+const AuctionCard = ({ when = undefined }) => {
   const [open, setOpen] = useState(false);
   return (
     <Bounce when={when} top>
       <Paper className="profile p-0 box position-relative d-inline-block profile-long">
-        <CardActionArea component={Link} className="p-3" to="/ad-details/nano">
+        <CardActionArea
+          component={Link}
+          className="p-3"
+          to="/auction-details/nano"
+        >
           <div className="row">
             <div className="col-4 px-0">
               <div className="profile__image">
@@ -20,7 +25,7 @@ const AdCard = ({ when = undefined }) => {
                 />
               </div>
             </div>
-            <div className="col-8">
+            <div className="col-8 text-start">
               <div className="row w-100">
                 <div className="col-12">
                   <div className="profile__info">
@@ -30,16 +35,16 @@ const AdCard = ({ when = undefined }) => {
               </div>
               <div className="row mb-3">
                 <div className="col-6">
-                  <p className="profile__stats__title">Category</p>
-                  <p className="profile__stats__title">Country</p>
-                  <p className="profile__stats__title">Owned By</p>
+                  <p className="profile__stats__title fw-bold">Current price</p>
+                  <p className="profile__stats__title fw-bold">Bids Count</p>
                 </div>
                 <div className="col-6">
-                  <p className="profile__stats__title">TEST</p>
-                  <p className="profile__stats__title">TEST</p>
-                  <p className="profile__stats__title text_colored">
-                    Picky Mango
-                  </p>
+                  <p className="profile__stats__title">10,000 S.A.R</p>
+                  <p className="profile__stats__title">20</p>
+                </div>
+                <div className="col-12 profile__stats__title">
+                  <b>Terms and Conditions:</b> Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit.
                 </div>
               </div>
               <div className="d-flex justify-content-between">
@@ -55,6 +60,9 @@ const AdCard = ({ when = undefined }) => {
           </div>
 
           <div className="d-flex justify-content-between flex-column flex-sm-row align-items-center">
+            <div>
+              <FullCounter time="23:59:59 31 dec 2021" />
+            </div>
             <Button
               onClick={(e) => {
                 e.preventDefault();
@@ -70,7 +78,7 @@ const AdCard = ({ when = undefined }) => {
               }}
               handleClose={() => setOpen(null)}
               open={open}
-              url={`${window.location.host}/ad-details/abc`}
+              url={`${window.location.host}/auction-details/nano`}
             />
           </div>
         </CardActionArea>
@@ -79,4 +87,4 @@ const AdCard = ({ when = undefined }) => {
   );
 };
 
-export default AdCard;
+export default AuctionCard;

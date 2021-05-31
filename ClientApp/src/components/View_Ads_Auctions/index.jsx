@@ -5,6 +5,7 @@ import Tab from "@material-ui/core/Tab";
 import { Bounce } from "react-reveal";
 import AdCard from "../utils/AdCard";
 import { Paper } from "@material-ui/core";
+import AuctionCard from "../utils/AuctionCard";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -67,7 +68,7 @@ function View() {
           <TabPanel value={value} index={1}>
             {ads_auctions.map((el) => (
               <div className="col-lg-6 py-2">
-                <AdCard when timer />
+                <AuctionCard when />
               </div>
             ))}
           </TabPanel>

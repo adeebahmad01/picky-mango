@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
 import {
-  Avatar,
   Box,
   Divider,
   IconButton,
   LinearProgress,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
   makeStyles,
   Paper,
   Typography,
@@ -16,9 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Logo from "../utils/Logo";
 import { H2 } from "../Terms";
 import { WhatsApp } from "../../images/icons/SocialIcons";
-import FullCounter from "../utils/FullCounter";
 import { social } from "../utils/ShareDropdown";
-import { useLanguage } from "../../hooks/useLanguage";
 import DetailsWrapper from "./DetailsWrapper";
 
 function LinearProgressWithLabel(props) {
@@ -59,13 +53,8 @@ const Location = (props) => (
   </svg>
 );
 
-const Details = ({ timer }) => {
+export const AdInner = () => {
   const classes = useStyles();
-  const { language } = useLanguage();
-  useEffect(() => {
-    document.body.style.overflow = `hidden`;
-    return () => (document.body.style.overflow = `visible`);
-  }, []);
   const images = [
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/fd3298b9-3eba-4c8d-9c8a-96d366af1b86/12066ada-cb5e-408b-8469-1feb82e8f3fc.jpeg",
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/2fd5466a-7acd-4364-8531-54339ac22861/d4cc0773-bf3b-4ed2-a0f5-98f3ad01428f.jpeg",
@@ -80,114 +69,123 @@ const Details = ({ timer }) => {
     "https://dropbox.pickymango.com/Dropbox_Files///PICKY_MANGO_ATTACHMENTS/AUCTIONS/MAIN_IMAG/THUMNAIL/3c6233a4-75cb-4390-8a32-d77b89ff4459/5febdbd0-e461-479e-bcdd-0a4ff10a8f96.jpeg",
   ];
   return (
-    <DetailsWrapper>
-      <div className={classes.bg}>
-        <div className="p-2">
-          <Paper>
-            <div className="p-4">
-              <div className="row">
-                <div className="col-lg-2 col-md-3 col-4">
-                  <div className="inner_img shadow-sm">
-                    <Logo
-                      className="position-absolute img"
-                      style={{ maxWidth: `100%`, maxHeight: `100%` }}
-                    />
-                  </div>
-                </div>
-                <div className="col-lg-10 col-md-9 col-8 py-2">
-                  <Typography variant="h3" className="mb-3">
-                    Picky Mango
-                  </Typography>
-                  <Typography variant="h6" className="mb-2">
-                    <Location width={18} className="me-2 d-inline-block" />
-                    <b>Country</b>: Jordan
-                  </Typography>
-                  <LinearProgressWithLabel value={45} />
-                  <Typography variant="h6">Job Success</Typography>
+    <div className={classes.bg}>
+      <div className="p-2">
+        <Paper>
+          <div className="p-4">
+            <div className="row">
+              <div className="col-lg-2 col-md-3 col-4">
+                <div className="inner_img shadow-sm">
+                  <Logo
+                    className="position-absolute img"
+                    style={{ maxWidth: `100%`, maxHeight: `100%` }}
+                  />
                 </div>
               </div>
+              <div className="col-lg-10 col-md-9 col-8 py-2">
+                <Typography variant="h3" className="mb-3">
+                  Picky Mango
+                </Typography>
+                <Typography variant="h6" className="mb-2">
+                  <Location width={18} className="me-2 d-inline-block" />
+                  <b>Country</b>: Jordan
+                </Typography>
+                <LinearProgressWithLabel value={45} />
+                <Typography variant="h6">Job Success</Typography>
+              </div>
             </div>
-            <Divider />
-            <div className="px-4">
-              <div className="row">
-                <div
-                  className="col-lg-7"
-                  style={{ borderRight: `1px solid #eee` }}
-                >
-                  <div className="pt-5">
-                    <Typography variant="h3" className="mb-2">
-                      New generation Apple headphones
-                    </Typography>
-                    {timer && <FullCounter time="07 07 2021" />}
-                    <Typography variant="body1">
-                      <b>Price</b>: 240 SAR
-                    </Typography>
-                    <Typography variant="body1">
-                      <b>Category</b>: Mobile phones and their accessories
-                    </Typography>
-                    <H2 variant="h6" className="my-2">
-                      Contact The Seller At
-                    </H2>
-                    <div>
-                      <a
-                        className="text-decoration-none"
-                        href="https://wa.me/+1234567890"
+          </div>
+          <Divider />
+          <div className="px-4">
+            <div className="row">
+              <div
+                className="col-lg-7"
+                style={{ borderRight: `1px solid #eee` }}
+              >
+                <div className="pt-5">
+                  <Typography variant="h3" className="mb-2">
+                    New generation Apple headphones
+                  </Typography>
+                  <Typography variant="body1">
+                    <b>Price</b>: 240 SAR
+                  </Typography>
+                  <Typography variant="body1">
+                    <b>Category</b>: Mobile phones and their accessories
+                  </Typography>
+                  <H2 variant="h6" className="my-2">
+                    Contact The Seller At
+                  </H2>
+                  <div>
+                    <a
+                      className="text-decoration-none"
+                      href="https://wa.me/+1234567890"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <IconButton
+                        style={{ backgroundColor: `#60ba4f`, color: `#fff` }}
+                      >
+                        <WhatsApp width={20} fill="currentColor" />
+                      </IconButton>
+                      <span className="h5 mx-3">+1234567890</span>
+                    </a>
+                  </div>
+                  <H2 variant="h6" className="my-2">
+                    Share
+                  </H2>
+                  <div className=" mb-3">
+                    {social.map((el) => (
+                      <IconButton
+                        component="a"
+                        href={el.url(window.location.toString())}
+                        className="me-2"
+                        title={el.name}
                         target="_blank"
                         rel="noreferrer"
+                        style={{ backgroundColor: el.color, color: `#fff` }}
                       >
-                        <IconButton
-                          style={{ backgroundColor: `#60ba4f`, color: `#fff` }}
-                        >
-                          <WhatsApp width={20} fill="currentColor" />
-                        </IconButton>
-                        <span className="h5 mx-3">+1234567890</span>
-                      </a>
-                    </div>
-                    <H2 variant="h6" className="my-2">
-                      Share
-                    </H2>
-                    <div className=" mb-3">
-                      {social.map((el) => (
-                        <IconButton
-                          component="a"
-                          href={el.url(window.location.toString())}
-                          className="me-2"
-                          title={el.name}
-                          target="_blank"
-                          rel="noreferrer"
-                          style={{ backgroundColor: el.color, color: `#fff` }}
-                        >
-                          <el.Icon fill="currentColor" width={20} />
-                        </IconButton>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-5">
-                  <div className="py-4">
-                    <Swiper
-                      autoplay={{ disableOnInteraction: false, delay: 2500 }}
-                      speed={500}
-                      initialSlide={0}
-                      navigation={true}
-                      grabCursor
-                      loop
-                      className="unaffected"
-                      style={{ overflowY: `visible`, paddingBottom: `3.6rem` }}
-                    >
-                      {images.map((el, i) => (
-                        <SwiperSlide>
-                          <img src={el} className="w-100" alt="skjw" />
-                        </SwiperSlide>
-                      ))}
-                    </Swiper>
+                        <el.Icon fill="currentColor" width={20} />
+                      </IconButton>
+                    ))}
                   </div>
                 </div>
               </div>
+              <div className="col-lg-5">
+                <div className="py-4">
+                  <Swiper
+                    autoplay={{ disableOnInteraction: false, delay: 2500 }}
+                    speed={500}
+                    initialSlide={0}
+                    navigation={true}
+                    grabCursor
+                    loop
+                    className="unaffected"
+                    style={{ overflowY: `visible`, paddingBottom: `3.6rem` }}
+                  >
+                    {images.map((el, i) => (
+                      <SwiperSlide>
+                        <img src={el} className="w-100" alt="skjw" />
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                </div>
+              </div>
             </div>
-          </Paper>
-        </div>
+          </div>
+        </Paper>
       </div>
+    </div>
+  );
+};
+
+const Details = () => {
+  useEffect(() => {
+    document.body.style.overflow = `hidden`;
+    return () => (document.body.style.overflow = `visible`);
+  }, []);
+  return (
+    <DetailsWrapper url={"/ad-detail/nano"}>
+      <AdInner />
     </DetailsWrapper>
   );
 };

@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DetailsWrapper = ({ children }) => {
+const DetailsWrapper = ({ children, url }) => {
   const { push } = useHistory();
   const classes = useStyles();
   const { language } = useLanguage();
@@ -71,8 +71,9 @@ const DetailsWrapper = ({ children }) => {
                 </IconButton>
               </div>
               <a
-                href={window.location.toString()}
+                href={`${window.location.origin}${url}`}
                 target="_blank"
+                rel="noreferrer"
                 className="nav_link text-decoration-none text-capitalize position-relative"
               >
                 open in new window
