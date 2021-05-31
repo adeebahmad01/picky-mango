@@ -129,7 +129,14 @@ export const AuctionInner = () => {
                 </Typography>
                 <LinearProgressWithLabel value={45} />
                 <Typography variant="body2">Job Success</Typography>
+              </div>
+              <div className="col-12">
                 <FullCounter time="07 07 2021" />
+                <p>
+                  <b>Terms and Conditions</b> Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Necessitatibus quaerat tenetur
+                  mollitia nostrum.
+                </p>
               </div>
             </div>
           </div>
@@ -146,7 +153,7 @@ export const AuctionInner = () => {
                 </div>
                 <div className="col">
                   <Typography variant="h6" className="mb-2">
-                    Max Value: {m(90000)}
+                    Max Value: {m(90000000000)}
                   </Typography>
                 </div>
               </div>

@@ -74,24 +74,28 @@ export const AdInner = () => {
         <Paper>
           <div className="p-4">
             <div className="row">
-              <div className="col-lg-2 col-md-3 col-4">
-                <div className="inner_img shadow-sm">
-                  <Logo
-                    className="position-absolute img"
-                    style={{ maxWidth: `100%`, maxHeight: `100%` }}
-                  />
+              <div className="col-lg-6">
+                <div className="row">
+                  <div className="col-lg-3 col-md-3 col-4">
+                    <div className="inner_img shadow-sm">
+                      <Logo
+                        className="position-absolute img"
+                        style={{ maxWidth: `100%`, maxHeight: `100%` }}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-lg-9 col-md-9 col-8 py-2">
+                    <Typography variant="h4" className="mb-2">
+                      Picky Mango
+                    </Typography>
+                    <Typography variant="body1" className="mb-1">
+                      <Location width={13} className="me-2 d-inline-block" />
+                      <b>Country</b>: Jordan
+                    </Typography>
+                    <LinearProgressWithLabel value={45} />
+                    <Typography variant="body2">Job Success</Typography>
+                  </div>
                 </div>
-              </div>
-              <div className="col-lg-10 col-md-9 col-8 py-2">
-                <Typography variant="h3" className="mb-3">
-                  Picky Mango
-                </Typography>
-                <Typography variant="h6" className="mb-2">
-                  <Location width={18} className="me-2 d-inline-block" />
-                  <b>Country</b>: Jordan
-                </Typography>
-                <LinearProgressWithLabel value={45} />
-                <Typography variant="h6">Job Success</Typography>
               </div>
             </div>
           </div>
