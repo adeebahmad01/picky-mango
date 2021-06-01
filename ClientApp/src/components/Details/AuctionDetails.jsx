@@ -137,6 +137,8 @@ export const AuctionInner = () => {
           </div>
           <div className="col-lg-6">
             <FullCounter time="07 07 2021" />
+          </div>
+          <div className="col-12">
             <Collapseable hide name="Terms & Conditions">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Aspernatur ipsum eum nesciunt laborum, sequi, debitis fuga, nemo
