@@ -103,7 +103,7 @@ export const AuctionInner = () => {
       p = Math.pow,
       d = p(10, a);
     x -= x % 3;
-    return Math.round((n * d) / p(10, x)) / d + " kMGTPE"[x / 3];
+    return Math.round((n * d) / p(10, x)) / d + " kMBTPE"[x / 3];
   }
   return (
     <>
