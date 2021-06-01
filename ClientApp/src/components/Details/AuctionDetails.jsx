@@ -132,80 +132,13 @@ export const AuctionInner = () => {
               </div>
               <div className="col-12">
                 <FullCounter time="07 07 2021" />
-                <p>
-                  <b>Terms and Conditions</b> Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Necessitatibus quaerat tenetur
-                  mollitia nostrum.
-                </p>
+                <Typography variant="h4">Terms & Conditions</Typography>
+                <Typography variant="body1">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Error hic consequuntur iusto aspernatur dignissimos non
+                  ratione recusandae nesciunt aut praesentium.
+                </Typography>
               </div>
-            </div>
-          </div>
-          <div className="col-lg-6 px-0">
-            <div className="text-white round linear p-3">
-              <Typography variant="h3" className="mb-2">
-                Bid
-              </Typography>
-              <div className="row">
-                <div className="col">
-                  <Typography variant="h6" className="mb-2">
-                    Min Value: {m(16000)}
-                  </Typography>
-                </div>
-                <div className="col">
-                  <Typography variant="h6" className="mb-2">
-                    Max Value: {m(90000000000)}
-                  </Typography>
-                </div>
-              </div>
-
-              <TextField
-                color="secondary"
-                fullWidth
-                readonly
-                value={price.toLocaleString() + "S.A.R"}
-                className="bg-white unaffected app rounded mb-3"
-                inputProps={{ className: `p-3 text-center` }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <div>
-                        <IconButton
-                          onClick={() => setPrice((p) => p - 10000)}
-                          className="rounded-0"
-                        >
-                          <span
-                            className="d-flex justify-content-center align-items-center"
-                            style={{ width: 25, height: 25 }}
-                          >
-                            -
-                          </span>
-                        </IconButton>
-                      </div>
-                    </InputAdornment>
-                  ),
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <div>
-                        <IconButton
-                          onClick={() => setPrice((p) => p + 10000)}
-                          className="rounded-0"
-                        >
-                          <span
-                            className="d-flex justify-content-center align-items-center"
-                            style={{ width: 25, height: 25 }}
-                          >
-                            +
-                          </span>
-                        </IconButton>
-                      </div>
-                    </InputAdornment>
-                  ),
-                }}
-                type="text"
-              />
-              <Button fullWidth color="default" variant="contained">
-                Participate in the auction
-              </Button>
             </div>
           </div>
         </div>
@@ -299,6 +232,73 @@ export const AuctionInner = () => {
                   <div className="col-lg-6">
                     <div className="row">
                       <div className="p-3 linear">
+                        <div className="text-white p-3">
+                          <Typography variant="h3" className="mb-2">
+                            Bid
+                          </Typography>
+                          <div className="row">
+                            <div className="col">
+                              <Typography variant="h6" className="mb-2">
+                                Min Value: {m(16000)}
+                              </Typography>
+                            </div>
+                            <div className="col">
+                              <Typography variant="h6" className="mb-2">
+                                Max Value: {m(90000000000)}
+                              </Typography>
+                            </div>
+                          </div>
+
+                          <TextField
+                            color="secondary"
+                            fullWidth
+                            readonly
+                            value={price.toLocaleString() + "S.A.R"}
+                            className="bg-white unaffected app rounded mb-3"
+                            inputProps={{ className: `p-3 text-center` }}
+                            InputProps={{
+                              startAdornment: (
+                                <InputAdornment position="start">
+                                  <div>
+                                    <IconButton
+                                      onClick={() => setPrice((p) => p - 10000)}
+                                      className="rounded-0"
+                                    >
+                                      <span
+                                        className="d-flex justify-content-center align-items-center"
+                                        style={{ width: 25, height: 25 }}
+                                      >
+                                        -
+                                      </span>
+                                    </IconButton>
+                                  </div>
+                                </InputAdornment>
+                              ),
+                              endAdornment: (
+                                <InputAdornment position="end">
+                                  <div>
+                                    <IconButton
+                                      onClick={() => setPrice((p) => p + 10000)}
+                                      className="rounded-0"
+                                    >
+                                      <span
+                                        className="d-flex justify-content-center align-items-center"
+                                        style={{ width: 25, height: 25 }}
+                                      >
+                                        +
+                                      </span>
+                                    </IconButton>
+                                  </div>
+                                </InputAdornment>
+                              ),
+                            }}
+                            type="text"
+                          />
+                          <Button fullWidth color="default" variant="contained">
+                            Participate in the auction
+                          </Button>
+                        </div>
+
                         <List component="nav">
                           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((el) => (
                             <div className="bg-white round mb-2 p-3">
