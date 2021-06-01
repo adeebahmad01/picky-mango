@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Collapseable = ({ i = 0, name, children }) => {
+const Collapseable = ({ i = 0, name, children, hide }) => {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
   return (
@@ -26,7 +26,7 @@ const Collapseable = ({ i = 0, name, children }) => {
             className={open && classes.primary}
             style={{ flexGrow: 1, fontWeight: `600` }}
           >
-            {i + 1}) {name}
+            {!hide && <>{i + 1})</>} {name}
           </Typography>
           <div>
             <IconButton className={open && classes.primary}>
@@ -34,7 +34,7 @@ const Collapseable = ({ i = 0, name, children }) => {
                 fill="currentColor"
                 width={12}
                 style={{
-                  transform: `rotate(${open ? 90 : 270}deg)`,
+                  transform: `rotate(${open ? 270 : 90}deg)`,
                   transition: `all 0.4s`,
                 }}
               />

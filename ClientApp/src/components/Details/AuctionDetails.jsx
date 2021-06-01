@@ -16,6 +16,7 @@ import {
   Paper,
   TextField,
   Typography,
+  Collapse,
 } from "@material-ui/core";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Logo from "../utils/Logo";
@@ -25,6 +26,7 @@ import FullCounter from "../utils/FullCounter";
 import { social } from "../utils/ShareDropdown";
 import { useLanguage } from "../../hooks/useLanguage";
 import DetailsWrapper from "./DetailsWrapper";
+import Collapseable from "../utils/Collabseable";
 
 function LinearProgressWithLabel(props) {
   return (
@@ -105,6 +107,7 @@ export const AuctionInner = () => {
     x -= x % 3;
     return Math.round((n * d) / p(10, x)) / d + " kMBTPE"[x / 3];
   }
+  const [open, setOpen] = useState(false);
   return (
     <>
       <Paper className="p-4">
@@ -130,16 +133,16 @@ export const AuctionInner = () => {
                 <LinearProgressWithLabel value={45} />
                 <Typography variant="body2">Job Success</Typography>
               </div>
-              <div className="col-12">
-                <FullCounter time="07 07 2021" />
-                <Typography variant="h4">Terms & Conditions</Typography>
-                <Typography variant="body1">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Error hic consequuntur iusto aspernatur dignissimos non
-                  ratione recusandae nesciunt aut praesentium.
-                </Typography>
-              </div>
             </div>
+          </div>
+          <div className="col-lg-6">
+            <FullCounter time="07 07 2021" />
+            <Collapseable hide name="Terms & Conditions">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Aspernatur ipsum eum nesciunt laborum, sequi, debitis fuga, nemo
+              voluptatibus molestiae quam provident pariatur itaque molestias?
+              Cum ullam vero dicta nam quae!
+            </Collapseable>
           </div>
         </div>
       </Paper>
